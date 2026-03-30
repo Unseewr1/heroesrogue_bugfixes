@@ -18,7 +18,7 @@ Endless: Victory is not the end. Continue on to a new map, keeping your boons an
 
 
 - You get boons when reaching level 1, level 10, and level 20 and curses every time the enemy Team reaches a talent tier, as well as level 24, level 27, and level 30.
-- 
+
 - Completing a map objective (for example getting 3 tributes on Cursed Hollow) replaces a future curse with a boon, once per game.
-- 
+
 - Some Heroes have unique starter boons, indicated with a golden border.
