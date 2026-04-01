@@ -442,22 +442,40 @@ xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/jamiephan/Heroe
 <CBehaviorBuff id="IllidanEvasionSpellArmor" parent="StormArmor">
   <ArmorModification>
     <ArmorSet index="Hero">
-      <ArmorMitigationTable index="Ability" value="-75" />
+      <ArmorMitigationTable index="Ability" value="-100" />
+      <OverrideMinCap index="Splash" value="1"/>
+      <OverrideMinCap index="Basic" value="1"/>
+      <OverrideMinCap index="Ability" value="1"/>
     </ArmorSet>
     <ArmorSet index="Merc">
-      <ArmorMitigationTable index="Ability" value="-75" />
+      <ArmorMitigationTable index="Ability" value="-100" />
+      <OverrideMinCap index="Splash" value="1"/>
+      <OverrideMinCap index="Basic" value="1"/>
+      <OverrideMinCap index="Ability" value="1"/>
     </ArmorSet>
     <ArmorSet index="Monster">
-      <ArmorMitigationTable index="Ability" value="-75" />
+      <ArmorMitigationTable index="Ability" value="-100" />
+      <OverrideMinCap index="Splash" value="1"/>
+      <OverrideMinCap index="Basic" value="1"/>
+      <OverrideMinCap index="Ability" value="1"/>
     </ArmorSet>
     <ArmorSet index="Summon">
-      <ArmorMitigationTable index="Ability" value="-75" />
+      <ArmorMitigationTable index="Ability" value="-100" />
+      <OverrideMinCap index="Splash" value="1"/>
+      <OverrideMinCap index="Basic" value="1"/>
+      <OverrideMinCap index="Ability" value="1"/>
     </ArmorSet>
     <ArmorSet index="Structure">
-      <ArmorMitigationTable index="Ability" value="-75" />
+      <ArmorMitigationTable index="Ability" value="-100" />
+      <OverrideMinCap index="Splash" value="1"/>
+      <OverrideMinCap index="Basic" value="1"/>
+      <OverrideMinCap index="Ability" value="1"/>
     </ArmorSet>
     <ArmorSet index="Minion">
-      <ArmorMitigationTable index="Ability" value="-75" />
+      <ArmorMitigationTable index="Ability" value="-100" />
+      <OverrideMinCap index="Splash" value="1"/>
+      <OverrideMinCap index="Basic" value="1"/>
+      <OverrideMinCap index="Ability" value="1"/>
     </ArmorSet>
   </ArmorModification>
 </CBehaviorBuff>

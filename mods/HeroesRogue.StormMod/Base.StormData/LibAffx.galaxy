@@ -1562,12 +1562,31 @@ void libAffx_ChooseAffixes(int rarity, bool negative, int level) {
 }
 
 void libAffx_ProcessQueue() {
+    int i;
     if (libAffx_queueActive || libAffx_queueCount <= 0 || libGame_gv_gameOver) {
         return;
     }
-    libAffx_queueActive = true;
-    libAffx_upgradedRarity = libAffx_queueAffixRarity[1];
-    libAffx_ChooseAffixes(libAffx_queueAffixRarity[1], libAffx_queueAffixNegative[1], libAffx_queueAffixLevel[1]);
+    if (libAffx_objectivesWonCounter > 0 && libAffx_queueAffixNegative[1] && !libAffx_debugCommandsAddAll) {
+        libAffx_queueActive = true;
+        libAffx_objectivesWonCounter -= 1;
+        libAffx_upgradedRarity = libAffx_queueAffixRarity[1];
+        libAffx_ChooseAffixes(libAffx_rarityCommon, false, libAffx_queueAffixLevel[1]);
+    } else if (libAffx_skipCurseCounter > 0 && libAffx_queueAffixNegative[1] && !libAffx_debugCommandsAddAll) {
+        libAffx_queueActive = false;
+        libAffx_skipCurseCounter -= 1;
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringExternal("Message/CurseSkipped"));
+    } else {
+        libAffx_queueActive = true;
+        libAffx_upgradedRarity = libAffx_queueAffixRarity[1];
+        libAffx_ChooseAffixes(libAffx_queueAffixRarity[1], libAffx_queueAffixNegative[1], libAffx_queueAffixLevel[1]);
+    }
+
+    for (i = 1; i <= libAffx_queueCount; i += 1) {
+        libAffx_queueAffixRarity[i] = libAffx_queueAffixRarity[i + 1];
+        libAffx_queueAffixNegative[i] = libAffx_queueAffixNegative[i + 1];
+        libAffx_queueAffixLevel[i] = libAffx_queueAffixLevel[i + 1];
+    }
+    libAffx_queueCount = MaxI(0, libAffx_queueCount - 1);
 }
 
 void libAffx_QueueAffix(int rarity, bool negative, int level, int amount) {
@@ -1576,21 +1595,10 @@ void libAffx_QueueAffix(int rarity, bool negative, int level, int amount) {
         if (libAffx_queueCount >= libAffx_queueMax || libAffx_disableAffixes) {
             break;
         }
-        if (libAffx_objectivesWonCounter > 0 && negative && !libAffx_debugCommandsAddAll) {
-            libAffx_queueCount += 1;
-            libAffx_objectivesWonCounter -= 1;
-            libAffx_queueAffixRarity[libAffx_queueCount] = libAffx_rarityCommon;
-            libAffx_queueAffixNegative[libAffx_queueCount] = false;
-            libAffx_queueAffixLevel[libAffx_queueCount] = level;
-        } else if (libAffx_skipCurseCounter > 0 && negative && !libAffx_debugCommandsAddAll) {
-            libAffx_skipCurseCounter -= 1;
-            UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringExternal("Message/CurseSkipped"));
-        } else {
-            libAffx_queueCount += 1;
-            libAffx_queueAffixRarity[libAffx_queueCount] = rarity;
-            libAffx_queueAffixNegative[libAffx_queueCount] = negative;
-            libAffx_queueAffixLevel[libAffx_queueCount] = level;
-        }
+        libAffx_queueCount += 1;
+        libAffx_queueAffixRarity[libAffx_queueCount] = rarity;
+        libAffx_queueAffixNegative[libAffx_queueCount] = negative;
+        libAffx_queueAffixLevel[libAffx_queueCount] = level;
     }
 
     libAffx_ProcessQueue();
@@ -1605,14 +1613,7 @@ void libAffx_AffixSelected(int selectionIndex) {
     }
     libAffx_UpdateOwnedAffixes();
 
-    for (i = 1; i <= libAffx_queueCount; i += 1) {
-        libAffx_queueAffixRarity[i] = libAffx_queueAffixRarity[i + 1];
-        libAffx_queueAffixNegative[i] = libAffx_queueAffixNegative[i + 1];
-        libAffx_queueAffixLevel[i] = libAffx_queueAffixLevel[i + 1];
-    }
-    libAffx_queueCount = MaxI(0, libAffx_queueCount - 1);
     libAffx_queueActive = false;
-
     libAffx_ProcessQueue();
 }
 bool libAffx_AffixHotkeyPressedTrigger_Func (bool testConds, bool runActions) {
