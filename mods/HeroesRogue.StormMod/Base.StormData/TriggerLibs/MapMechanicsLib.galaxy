@@ -1111,7 +1111,7 @@ void libMapM_gf_JungleUpdateTextTagForCamp (int lp_camp) {
         libNtve_gf_SetDialogItemText(libMapM_gv_uIJungleCampPanel.lv_jungleCreepCampsInfo_Label_Title[lp_camp], lv_titleText, PlayerGroupAll());
         libNtve_gf_SetDialogItemText(libMapM_gv_uIJungleCampPanel.lv_jungleCreepCampsInfo_Label_PlayerName[lp_camp], lv_playerNameText, PlayerGroupAll());
         libNtve_gf_SetDialogItemText(libMapM_gv_uIJungleCampPanel.lv_jungleCreepCampsInfo_Label_Description[lp_camp], lv_descText, PlayerGroupAll());
-        libNtve_gf_SetDialogItemText(libMapM_gv_uIJungleCampPanel.lv_jungleCreepCampsInfo_Label_Debug[lp_camp], lv_debugDamageText, PlayerGroupAll());
+        //libNtve_gf_SetDialogItemText(libMapM_gv_uIJungleCampPanel.lv_jungleCreepCampsInfo_Label_Debug[lp_camp], lv_debugDamageText, PlayerGroupAll());
     }
     else {
         DialogControlSetAnimationState(libMapM_gv_uIJungleCampPanel.lv_jungleCreepCampsInfoPanel[lp_camp], PlayerGroupAll(), "TeamCaptured", "NotCaptured");
@@ -1119,7 +1119,7 @@ void libMapM_gf_JungleUpdateTextTagForCamp (int lp_camp) {
         libNtve_gf_SetDialogItemText(libMapM_gv_uIJungleCampPanel.lv_jungleCreepCampsInfo_Label_Title[lp_camp], lv_titleText, PlayerGroupAll());
         libNtve_gf_SetDialogItemText(libMapM_gv_uIJungleCampPanel.lv_jungleCreepCampsInfo_Label_PlayerName[lp_camp], lv_playerNameText, PlayerGroupAll());
         libNtve_gf_SetDialogItemText(libMapM_gv_uIJungleCampPanel.lv_jungleCreepCampsInfo_Label_Description[lp_camp], lv_descText, PlayerGroupAll());
-        libNtve_gf_SetDialogItemText(libMapM_gv_uIJungleCampPanel.lv_jungleCreepCampsInfo_Label_Debug[lp_camp], lv_debugDamageText, PlayerGroupAll());
+        //libNtve_gf_SetDialogItemText(libMapM_gv_uIJungleCampPanel.lv_jungleCreepCampsInfo_Label_Debug[lp_camp], lv_debugDamageText, PlayerGroupAll());
     }
 }
 

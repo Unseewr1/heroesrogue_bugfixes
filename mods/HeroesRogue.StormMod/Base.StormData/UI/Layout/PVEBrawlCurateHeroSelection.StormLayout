@@ -1256,42 +1256,9 @@
         <Anchor side="Left" relative="$parent/RoleHeroSelectionPanel1" pos="Min" offset="0" />
       </Frame>
     </Frame>
-    <Frame type="Button" name="InfoButton" template="PVEBrawlCurateHeroSelection/HeroAttributeButtonTemplate">
+    <Frame type="Button" name="InfoButton" >
       <Anchor side="Bottom" relative="$parent/TalentsButton" pos="Max" offset="0" />
       <Anchor side="Left" relative="$parent/TalentsButton" pos="Mid" offset="#InfoButtonOffsets" />
-      <Text val="@UI/HeroNexusBrawlPanel/BrawlInfo" />
-      <Frame type="Image" name="BaseButtonImage">
-        <Texture val="@UI/storm_ui_play_heroattributes_button_brawl_normal" />
-      </Frame>
-      <Frame type="Image" name="DisabledButtonImage">
-        <Texture val="@UI/storm_ui_play_heroattributes_button_brawl_disabled" />
-      </Frame>
-      <Frame type="Image" name="HoverButtonImage">
-        <Texture val="@UI/storm_ui_play_heroattributes_button_brawl_hover" />
-      </Frame>
-      <Frame type="Image" name="ToggledButtonImage">
-        <Texture val="@UI/storm_ui_play_heroattributes_button_brawl_selected" />
-      </Frame>
-      <StateGroup name="InfoButtonState">
-        <DefaultState val="Disabled" />
-        <State name="Disabled">
-          <When type="Property" frame="$parent/InfoPanel" InfoAvailable="false" />
-          <Action type="SetProperty" frame="$this" enabled="false" />
-          <Action type="SendEvent" frame="$parent/InfoPanel" event="Hide" />
-        </State>
-        <State name="InfoAvailable">
-          <When type="Property" frame="$parent/InfoPanel" InfoAvailable="true" />
-          <When type="Property" frame="$parent" InfoPopupShown="false" />
-          <Action type="SetProperty" enabled="true" />
-          <Action type="SendEvent" frame="$parent/InfoPanel" event="Hide" />
-        </State>
-        <State name="InfoShown">
-          <When type="Property" frame="$parent/InfoPanel" InfoAvailable="true" />
-          <When type="Property" frame="$parent" InfoPopupShown="true" />
-          <Action type="SetProperty" enabled="true" />
-          <Action type="SendEvent" frame="$parent/InfoPanel" event="Show" />
-        </State>
-      </StateGroup>
     </Frame>
     <Frame type="Button" name="AbilitiesButton" template="PVEBrawlCurateHeroSelection/HeroAttributeButtonTemplate">
       <Anchor side="Bottom" relative="$parent" pos="Max" offset="0" />

@@ -28,5 +28,20 @@ xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/jamiephan/Heroe
     <TokenId value="AffixBurningBladesTokenCounter" />
     <Scale value="0.01" />
   </CAccumulatorToken>
+  
+  <CAccumulatorToken id="SentinelShotDamageAccumulator" parent="BaseAccumulator">
+    <SourceEffect value="SentinelShotDamage" />
+    <ApplicationRule value="Add" />
+    <TokenId value="SentinelShotDamageTokenCounter" />
+    <Scale value="0.05" />
+    <MaxAccumulation value="50" />
+  </CAccumulatorToken>
+  <CAccumulatorToken id="TheMarkAccumulator" parent="BaseAccumulator">
+    <SourceEffect value="TyrandeHeroWeaponDamage" />
+    <ApplicationRule value="Add" />
+    <TokenId value="TheMarkTokenCounter" />
+    <Scale value="0.33" />
+    <MaxAccumulation value="9999" />
+  </CAccumulatorToken>
 
 </Catalog>

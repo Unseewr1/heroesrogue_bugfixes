@@ -67,6 +67,7 @@
         <Fields Id="QuestPersists" Type="Int"/>
         <Fields Id="CooldownLink" Type="String"/>
         <Fields Id="SkipCurses" Type="Int"/>
+        <Fields Id="QuestRetain" Type="String" Count="10"/>
         <Instances Id="[Default]">
             <Int Int="1">
                 <Field Id="Enabled"/>
@@ -1619,6 +1620,9 @@
             <String String="UD libAffx_GreatVikingHoardUnitDiedStructure">
                 <Field Id="Trigger" Index="1"/>
             </String>
+            <String String="LostVikingsVikingHoardTokenCounter 0.25">
+                <Field Id="QuestRetain"/>
+            </String>
         </Instances>
         <Instances Id="SpecializedVikings">
             <String String="Execute libAffx_SpecializedVikingsExecute">
@@ -1770,6 +1774,9 @@
             <String String="1 1 Multiply Effect,IllidanUnendingHatredQuestCompleteIncreaseQuestToken,Value 1.25">
                 <Field Id="CatalogModification" Index="2"/>
             </String>
+            <String String="IllidanUnendingHatredTokenCounter 0.5">
+                <Field Id="QuestRetain"/>
+            </String>
         </Instances>
         <Instances Id="BurningBlades">
             <String String="1 0 Set Effect,IllidanApplyAffixBurningBlades,Chance 1">
@@ -1910,6 +1917,184 @@
             </String>
             <String String="Execute libAffx_EnemyBlockExecute">
                 <Field Id="Trigger"/>
+            </String>
+        </Instances>
+        <Instances Id="ElunesRanger">
+            <String String="Tyrande">
+                <Field Id="HeroSpecific"/>
+            </String>
+            <String String="Starter">
+                <Field Id="Rarity"/>
+            </String>
+            <String String="TyrandeRanger">
+                <Field Id="TalentsAdd"/>
+            </String>
+            <String String="TyrandeHarshMoonlight">
+                <Field Id="TalentsAdd" Index="1"/>
+            </String>
+            <String String="TyrandeEmpower">
+                <Field Id="TalentsAdd" Index="2"/>
+            </String>
+            <String String="TyrandeCommanderofSentinels">
+                <Field Id="TalentsAdd" Index="3"/>
+            </String>
+            <String String="Assets/Textures/storm_ui_icon_tyrande_sentinel.dds">
+                <Field Id="Icon"/>
+            </String>
+            <String String="1 1 Add Abil,TyrandeSentinelShot,Cost.Charge.CountMax 1">
+                <Field Id="CatalogModification"/>
+            </String>
+            <String String="1 1 Add Abil,TyrandeSentinelShot,Cost.Charge.CountStart 1">
+                <Field Id="CatalogModification" Index="1"/>
+            </String>
+            <String String="1 0 SentinelShotDamageTokenCounter">
+                <Field Id="Behavior"/>
+            </String>
+            <String String="1 1 Set Effect,SentinelShotDamageModifyTokenCount,Chance 1">
+                <Field Id="CatalogModification" Index="2"/>
+            </String>
+            <String String="1 1 Multiply Abil,TyrandeSentinelShot,Cost.Vital[Energy] 0">
+                <Field Id="CatalogModification" Index="3"/>
+            </String>
+            <String String="SentinelShotDamageTokenCounter 0.25">
+                <Field Id="QuestRetain"/>
+            </String>
+        </Instances>
+        <Instances Id="TheMark">
+            <String String="Assets/Textures/storm_ui_icon_tyrande_huntersmark.dds">
+                <Field Id="Icon"/>
+            </String>
+            <String String="Tyrande">
+                <Field Id="HeroSpecific"/>
+            </String>
+            <String String="Starter">
+                <Field Id="Rarity"/>
+            </String>
+            <String String="TyrandeTrueshotAura">
+                <Field Id="TalentsAdd"/>
+            </String>
+            <String String="TyrandeMarkofMending">
+                <Field Id="TalentsAdd" Index="1"/>
+            </String>
+            <String String="TyrandeHuntressFury">
+                <Field Id="TalentsAdd" Index="2"/>
+            </String>
+            <String String="TyrandeRangersMark">
+                <Field Id="TalentsAdd" Index="3"/>
+            </String>
+            <String String="1 1 Add Behavior,TyrandeHuntersMark,Duration 4">
+                <Field Id="CatalogModification"/>
+            </String>
+            <String String="1 0 TheMarkTokenCounter">
+                <Field Id="Behavior"/>
+            </String>
+            <String String="1 1 Set Effect,TheMarkModifyTokenCount,Chance 1">
+                <Field Id="CatalogModification" Index="1"/>
+            </String>
+            <String String="Execute libAffx_TheMarkExecute">
+                <Field Id="Trigger"/>
+            </String>
+            <String String="Win libAffx_TheMarkWin">
+                <Field Id="Trigger" Index="1"/>
+            </String>
+            <String String="TheMarkTokenCounter 0.5">
+                <Field Id="QuestRetain"/>
+            </String>
+        </Instances>
+        <Instances Id="MeteorShower">
+            <String String="Assets/Textures/storm_ui_icon_tyrande_lunarflare.dds">
+                <Field Id="Icon"/>
+            </String>
+            <String String="Tyrande">
+                <Field Id="HeroSpecific"/>
+            </String>
+            <String String="Starter">
+                <Field Id="Rarity"/>
+            </String>
+            <String String="1 1 Set Effect,TyrandeShootingStarProcSearchAffix,Chance 0.5">
+                <Field Id="CatalogModification"/>
+            </String>
+            <String String="ElunesGift">
+                <Field Id="TalentsAdd"/>
+            </String>
+        </Instances>
+        <Instances Id="ElunesGrace">
+            <String String="Tyrande">
+                <Field Id="HeroSpecific"/>
+            </String>
+            <String String="Assets/Textures/storm_ui_icon_tyrande_lightofelune.dds">
+                <Field Id="Icon"/>
+            </String>
+            <String String="Rare">
+                <Field Id="Rarity"/>
+            </String>
+            <String String="1 3 Add Abil,TyrandeLightofElune,Cost.Charge.CountMax 1">
+                <Field Id="CatalogModification"/>
+            </String>
+            <String String="1 3 Add Abil,TyrandeLightofElune,Cost.Charge.CountStart 1">
+                <Field Id="CatalogModification" Index="1"/>
+            </String>
+            <String String="1 3 Add Effect,TyrandeLightOfEluneModifyUnit,Cost[0].ChargeCountUse -1">
+                <Field Id="CatalogModification" Index="2"/>
+            </String>
+        </Instances>
+        <Instances Id="DeadlyMark">
+            <String String="Tyrande">
+                <Field Id="HeroSpecific"/>
+            </String>
+            <String String="Assets/Textures/storm_ui_icon_tyrande_huntersmark.dds">
+                <Field Id="Icon"/>
+            </String>
+            <String String="Rare">
+                <Field Id="Rarity"/>
+            </String>
+            <String String="1 3 Add Behavior,TyrandeHuntersMarkArmorDecrease,ArmorModification.AllArmorBonus -10">
+                <Field Id="CatalogModification"/>
+            </String>
+        </Instances>
+        <Instances Id="StunningLight">
+            <String String="1 3 Add Behavior,LunarFlareStun,Duration 0.25">
+                <Field Id="CatalogModification"/>
+            </String>
+            <String String="Assets/Textures/storm_ui_icon_tyrande_lunarflare.dds">
+                <Field Id="Icon"/>
+            </String>
+            <String String="Tyrande">
+                <Field Id="HeroSpecific"/>
+            </String>
+            <String String="Uncommon">
+                <Field Id="Rarity"/>
+            </String>
+        </Instances>
+        <Instances Id="BigStar">
+            <String String="Uncommon">
+                <Field Id="Rarity"/>
+            </String>
+            <String String="1 2 Multiply Effect,LunarFlareImpactSearchArea,AreaArray[0].Radius 1.2">
+                <Field Id="CatalogModification"/>
+            </String>
+            <String String="1 2 Multiply Actor,TyrandeLunarFlareImpact,Scale 1.2">
+                <Field Id="CatalogModification" Index="1"/>
+            </String>
+            <String String="Assets/Textures/storm_ui_icon_tyrande_lunarflare.dds">
+                <Field Id="Icon"/>
+            </String>
+            <String String="Tyrande">
+                <Field Id="HeroSpecific"/>
+            </String>
+        </Instances>
+        <Instances Id="ElunesReach">
+            <String String="Assets/Textures/storm_ui_icon_tyrande_lightofelune.dds">
+                <Field Id="Icon"/>
+            </String>
+            <String String="1 2 Multiply Abil,TyrandeLightofElune,Range 1.5">
+                <Field Id="CatalogModification"/>
+            </String>
+            <String String="1 2 Multiply Actor,TyrandeLightofEluneRangeSplat,Scale 1.5">
+                <Field Id="CatalogModification" Index="1"/>
+            </String>
+            <String String="Tyrande">
+                <Field Id="HeroSpecific"/>
             </String>
         </Instances>
     </CUser>

@@ -24,3 +24,7 @@ Singleplayer rogue-like mod for Heroes of the Storm.
 - Game progress is automatically saved after destroying the enemy Core, boons and curses persist every game. You can quit and play at another time, the game will resume from where you left of.
 
 - If your Core gets destroyed, all boons and curses are reset and you have to start over. You can also type 'resetgame' in chat to manually restart the run.
+
+
+#### Disclaimer:
+This is a fan-made project and is not affiliated with or endorsed by Blizzard Entertainment. The mod runs locally and does not interact with Blizzard's servers. All original game assets, characters, and intellectual property belong to Blizzard Entertainment.

@@ -8,6 +8,7 @@ const int libAffx_maxTalentsAdd = 10;
 const int libAffx_maxCatalogModification = 10;
 const int libAffx_maxBehavior = 10;
 const int libAffx_maxTrigger = 10;
+const int libAffx_maxQuestRetain = 10;
 const int libAffx_player = 1; // The player's index.
 const int libAffx_enemy = 6;
 
@@ -96,14 +97,14 @@ const int libAffx_rerollsStart = 2; // How many rerolls the player starts with.
 unitfilter libAffx_filtersTeamOrder = UnitFilter(0, 0, (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterCreep) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))); // Filter for all units in team Order.
 unitfilter libAffx_filtersTeamOrderNoStructures = UnitFilter(0, 0, (1 << c_targetFilterStructure) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterEnemy) | (1 << c_targetFilterCreep) | (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))); // Filter for all units in team Order excluding Structures.
 
-const int libAffx_affixMax = 100; // Maximum affixes
+const int libAffx_affixMax = 200; // Maximum affixes
 const int libAffx_queueMax = 100; // Maximum affixes in queue.
 const int libAffx_rollMax = 100; // Maximum affixes that can roll for a slot.
 const int libAffx_affixSelectionMax = 3; // Number of affixes the player can pick from.
 
 const fixed libAffx_gameStartDelay = 2; // Delay before loading affixes from the bank.
 
-const fixed libAffx_version = 0.64;
+const fixed libAffx_version = 0.7;
 
 
 struct libAffx_CatalogModification {
@@ -132,6 +133,9 @@ struct libAffx_Quest {
     bool questDone;
     bool questProgressPersists;
     int questProgress;
+    string tokenBehavior;
+    fixed retainModifier;
+    fixed tokenCount;
 };
 
 struct libAffx_AffixData {
@@ -165,6 +169,7 @@ struct libAffx_AffixData {
     int skipCurses;
 
     libAffx_Quest quest;
+    libAffx_Quest[libAffx_maxQuestRetain + 1] questRetain;
 
     string cooldownLink;
     fixed cooldown;

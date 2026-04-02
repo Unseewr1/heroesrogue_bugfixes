@@ -395,5 +395,59 @@ xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/jamiephan/Heroe
     <Operation value="Set" />
     <Value value="0" />
   </CEffectModifyTokenCount>
+  
+  <CEffectSet id="SentinelShotImpactSet">
+    <EffectArray value="SentinelShotDamageModifyTokenCount" />
+  </CEffectSet>
+  <CEffectDamage id="SentinelShotDamage" parent="StormSpell">
+    <Visibility value="Hidden" />
+    <Amount value="120">
+      <AccumulatorArray value="SentinelShotDamageAccumulator" />
+    </Amount>
+    <MultiplicativeModifierArray index="Ranger" Validator="HasTyrandeSentinelRanger" Accumulator="TyrandeSentinelShotRangerAccumulator" />
+  </CEffectDamage>
+  <CEffectModifyTokenCount id="SentinelShotDamageModifyTokenCount" parent="BaseEffectModifyTokenCount">
+    <Chance value="0" />
+    <ValidatorArray value="TargetIsHero" />
+    <EffectCategory index="Quest" value="1" />
+    <TokenId value="SentinelShotDamageTokenCounter" />
+  </CEffectModifyTokenCount>
+  <CEffectDamage id="TyrandeHeroWeaponDamage" parent="StormWeapon">
+    <MultiplicativeModifierArray index="NockedandLoaded" Validator="TargetIsHero" Accumulator="TyrandeDarnassianArcheryTalentDamageAccumulator" />
+    <Amount value="55">
+      <AccumulatorArray value="TheMarkAccumulator" />
+    </Amount>
+  </CEffectDamage>
+  <CEffectDamage id="TyrandeHuntressFuryDamage" parent="StormWeapon">
+    <Amount value="55">
+      <AccumulatorArray value="TheMarkAccumulator" />
+    </Amount>
+  </CEffectDamage>
+  <CEffectModifyTokenCount id="TheMarkModifyTokenCount" parent="BaseEffectModifyTokenCount">
+    <Chance value="0" />
+    <ValidatorArray value="TargetIsHero" />
+    <EffectCategory index="Quest" value="1" />
+    <TokenId value="TheMarkTokenCounter" />
+  </CEffectModifyTokenCount>
+  <CEffectSet id="TyrandeHeroWeaponImpactSet">
+    <EffectArray value="TheMarkModifyTokenCount" />
+    <EffectArray value="TyrandeShootingStarProcSearchAffix" />
+  </CEffectSet>
+  <CEffectSet id="TyrandeHeroWeaponHuntressFuryTalentMissileImpactSet">
+    <EffectArray value="TheMarkModifyTokenCount" />
+  </CEffectSet>
+  <CEffectEnumArea id="TyrandeShootingStarProcSearchAffix">
+    <Chance value="0" />
+    <SearchFilters value="Visible;Player,Ally,Neutral,ImmuneToAOE,Missile,Item,Stasis,Dead,Hidden,Invulnerable,Benign" />
+    <TargetSorts RequestCount="1" RequestPercentage="1">
+      <SortArray value="TSRandom" />
+    </TargetSorts>
+    <AreaArray MaxCount="1" Effect="LunarFlareInitialPersistent">
+      <Radius value="$TyrandeLunarFlareRange" />
+    </AreaArray>
+  </CEffectEnumArea>
+  <CEffectModifyPlayer id="LunarFlareQuestRangeUpgrade">
+    <EffectArray Reference="Effect,TyrandeShootingStarProcSearchAffix,AreaArray[0].Radius" Value="$TyrandeLunarBlazeRangeIncrease" />
+  </CEffectModifyPlayer>
 
 </Catalog>

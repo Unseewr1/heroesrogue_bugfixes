@@ -1103,19 +1103,18 @@ bool libAffx_EnemyLeechUnitChangeOwner (bool testConds, bool runActions) {
 // Critical Mass
 // ---------------------------------------------------------------
 bool libAffx_CriticalMassHT (bool testConds, bool runActions) {
-    int player;
-    unit unitVar;
+    int player = libGame_gf_HeroParticipatedInTakedownKillingPlayer();
+    unit killerUnit = libGame_gv_players[player].lv_heroUnit;
+    unit deadUnit = libGame_gf_HeroParticipatedInTakedownKilledHero();
 
-    player = libGame_gf_HeroParticipatedInTakedownKillingPlayer();
-    unitVar = libGame_gv_players[player].lv_heroUnit;
     if (testConds) {
-        if (!UnitIsAlive(unitVar)) {
+        if (!UnitIsAlive(killerUnit)) {
             return false;
         }
         if (player != libAffx_player) {
             return false;
         }
-        if (UnitTestState(unitVar, c_unitStateHallucination)) {
+        if (UnitTestState(deadUnit, c_unitStateHallucination)) {
             return false;
         }
     }
@@ -1123,7 +1122,7 @@ bool libAffx_CriticalMassHT (bool testConds, bool runActions) {
         return true;
     }
 
-    libAffx_ResetCooldowns(unitVar);
+    libAffx_ResetCooldowns(killerUnit);
     
     return true;
 }
@@ -1794,31 +1793,6 @@ bool libAffx_PeriodicRegenGlobesPeriodic (bool testConds, bool runActions) {
     return true;
 }
 // ---------------------------------------------------------------
-// Unending Hatred
-// ---------------------------------------------------------------
-bool libAffx_UnendingHatredExecute (bool testConds, bool runActions) {
-    fixed token;
-    if (!runActions) {
-        return true;
-    }
-    token = libAffx_BankLoadValueFixed("IllidanUnendingHatredTokenCounter");
-    if (token > 0) {
-        libAffx_ModifyTokenCount(libAffx_player, FixedToInt(token), "IllidanUnendingHatredTokenCounter");
-    }
-    return true;
-}
-bool libAffx_UnendingHatredWin (bool testConds, bool runActions) {
-    fixed token;
-    if (!runActions) {
-        return true;
-    }
-    token = UnitGetTokenCount(libGame_gv_players[libAffx_player].lv_heroUnit, "IllidanUnendingHatredTokenCounter");
-    if (token > 0) {
-        libAffx_BankSaveValueFixed("IllidanUnendingHatredTokenCounter", token * 0.5);
-    }
-    return true;
-}
-// ---------------------------------------------------------------
 // Evasive
 // ---------------------------------------------------------------
 bool libAffx_EvasiveUnitCreated (bool testConds, bool runActions) {
@@ -1869,6 +1843,5 @@ bool libAffx_EnemyBlockExecute (bool testConds, bool runActions) {
     PlayerAddTalent(10, "GenericTalentBlock");
     return true;
 }
-
 
 include "LibAffx"
