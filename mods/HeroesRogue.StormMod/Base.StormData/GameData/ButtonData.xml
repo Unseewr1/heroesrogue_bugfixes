@@ -48,4 +48,12 @@ xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/jamiephan/Heroe
   <Icon value="Assets\Textures\affix_icon_first_aid.dds" />
 </CButton>
 
+<CButton id="DoNothing" parent="StormButtonParent">
+  <Icon value="Assets\Textures\affix_icon_question_mark.dds" />
+</CButton>
+
+<CButton id="LiMingCriticalPowerTokenCounter" parent="StormButtonParent">
+  <Icon value="Assets\Textures\storm_ui_icon_wizard_criticalmass.dds" />
+</CButton>
+
 </Catalog>

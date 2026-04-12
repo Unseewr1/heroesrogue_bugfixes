@@ -232,5 +232,91 @@ xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/jamiephan/Heroe
     <Host Scope="Target" />
     <Sound value="MaievWheresIllidanWarning" />
   </CActorSound>
+  
+  <CActorUnit id="HeroThrall" parent="StormHeroStandard" unitName="HeroThrall">
+    <MinimapIcon value="Assets\Textures\storm_ui_minimapicon_thrall.dds"/>
+    <HeroIcon value="Assets\Textures\UI_targetportrait_Hero_Thrall.dds"/>
+    <On Terms="Abil.ThrallChainLightning.SourceCastStart" Send="AnimPlay Spell Spell,A 0 -1.000000 -1.000000 1.000000 AsTimeScale"/>
+    <On Terms="Abil.ThrallFeralSpirit.SourceCastStart" Send="AnimPlay Spell Spell,D 0 -1.000000 -1.000000 1.000000 AsTimeScale"/>
+    <On Terms="Abil.ThrallWindfury.SourceCastStart" Send="AnimPlay Spell Spell,B 0 -1.000000 -1.000000 1.000000 AsTimeScale"/>
+    <On Terms="Abil.ThrallSundering.SourceCastStart" Send="AnimPlay Spell Spell,C 0 -1.000000 -1.000000 1.000000 AsTimeScale"/>
+    <On Terms="Abil.ThrallEarthquake.SourceCastStart" Send="AnimPlay Spell Spell,E 0 -1.000000 -1.000000 1.000000 AsTimeScale"/>
+    <On Terms="ActorCreation" Send="StatusSet Windfury 0"/>
+    <On Terms="Effect.WindfuryStacksApplyStackBehavior.Start; At Caster" Send="StatusSet Windfury 3"/>
+    <On Terms="Effect.WindfuryStacksRemoveStack.Start; At Caster" Send="StatusDecrement Windfury"/>
+    <On Terms="Behavior.WindfuryStack.Off" Send="StatusSet Windfury 0"/>
+    <On Terms="Effect.ThrallFrostwolfResilienceManaTideTalentRestoreMana.Start" Send="Create Storm_Effect_GenericMana_Impact"/>
+    <On Terms="WeaponStart.ThrallHeroWeapon.AttackStart; IsStatus Windfury 3; ValidateUnit CasterNotBlinded" Send="AnimPlay Attack Attack,Cover,00 0 0.050000 0.100000"/>
+    <On Terms="WeaponStart.ThrallHeroWeapon.AttackStart; IsStatus Windfury 2; ValidateUnit CasterNotBlinded" Send="AnimPlay Attack Attack,Cover,01 0 0.050000 0.100000"/>
+    <On Terms="WeaponStart.ThrallHeroWeapon.AttackStart; IsStatus Windfury 1; ValidateUnit CasterNotBlinded" Send="AnimPlay Attack Attack,Cover,02 0 0.050000 0.100000"/>
+    <On Terms="WeaponStart.ThrallHeroWeapon.AttackStart; IsStatus Windfury 3; ValidateUnit CasterNotBlinded" Send="Create ThrallWeaponTrailVersion01"/>
+    <On Terms="WeaponStart.ThrallHeroWeapon.AttackStart; IsStatus Windfury 2; ValidateUnit CasterNotBlinded" Send="Create ThrallWeaponTrailVersion02"/>
+    <On Terms="WeaponStart.ThrallHeroWeapon.AttackStart; IsStatus Windfury 1; ValidateUnit CasterNotBlinded" Send="Create ThrallWeaponTrailVersion01"/>
+    <On Terms="WeaponStart.ThrallHeroWeaponRanged.AttackStart" Send="AnimPlay Spell Spell,A 0 -1.000000 -1.000000 1.000000 AsTimeScale" />
+    <On Terms="AnimPlay; AnimPlaying Attack Attack,00; IsStatus Windfury 0" Send="Create ThrallWeaponTrailVersion01"/>
+    <On Terms="AnimPlay; AnimPlaying Attack Attack,01; IsStatus Windfury 0" Send="Create ThrallWeaponTrailVersion01"/>
+    <On Terms="AnimPlay; AnimPlaying Attack Attack,02; IsStatus Windfury 0" Send="Create ThrallWeaponTrailVersion01"/>
+    <On Terms="AnimPlay; AnimPlaying Attack Attack,03; IsStatus Windfury 0" Send="Create ThrallWeaponTrailVersion01"/>
+    <On Terms="AnimPlay; AnimPlaying Attack Attack,04; IsStatus Windfury 0" Send="Create ThrallWeaponTrailVersion00"/>
+    <On Terms="AnimPlay; AnimPlaying Attack Attack,05; IsStatus Windfury 0" Send="Create ThrallWeaponTrailVersion00"/>
+    <On Terms="Abil.ThrallSundering.SourceCastStart" Send="StatusSet CataIncrement 0"/>
+    <On Terms="Effect.SunderingDummyPersistent.Start" Send="StatusIncrement CataIncrement"/>
+    <On Terms="Effect.SunderingDummyPersistent.Start; IsStatus CataIncrement 5" Send="StatusSet CataIncrement 1"/>
+    <On Terms="Effect.SunderingDummyPersistent.Start; IsStatus CataIncrement 1; ValidateUnit ThrallHasWorldbreaker" Send="Create ThrallSunderingWorldbreakerBirth"/>
+    <On Terms="Effect.SunderingDummyPersistent.Start; IsStatus CataIncrement 2; ValidateUnit ThrallHasWorldbreaker" Send="Create ThrallSunderingWorldbreakerBirth01"/>
+    <On Terms="Effect.SunderingDummyPersistent.Start; IsStatus CataIncrement 3; ValidateUnit ThrallHasWorldbreaker" Send="Create ThrallSunderingWorldbreakerBirth02"/>
+    <On Terms="Effect.SunderingDummyPersistent.Start; IsStatus CataIncrement 4; ValidateUnit ThrallHasWorldbreaker" Send="Create ThrallSunderingWorldbreakerBirth03"/>
+    <Remove Terms="AnimDone; AnimName Taunt" Send="Signal ApplyReady"/>
+    <PortraitModel value="ThrallPortrait"/>
+    <PortraitActor value="ThrallPortrait"/>
+    <DeathArray index="Normal" SoundLink="ThrallBase_Death"/>
+    <AbilSoundArray AbilCmd="ThrallChainLightning,Execute" Sound="ThrallBase_VOX_CastingA"/>
+    <AbilSoundArray AbilCmd="ThrallFeralSpirit,Execute" Sound="ThrallBase_VOX_CastingB"/>
+    <AbilSoundArray AbilCmd="ThrallWindfury,Execute" Sound="ThrallBase_VOX_CastingC"/>
+    <AbilSoundArray AbilCmd="ThrallSundering,Execute" Sound="ThrallBase_Ultimate1Used"/>
+    <AbilSoundArray AbilCmd="ThrallEarthquake,Execute" Sound="ThrallBase_Ultimate2Used"/>
+    <SoundArray index="Ready" value="ThrallBase_Revive"/>
+    <SoundArray index="Yes" value="ThrallBase_Yes"/>
+    <SoundArray index="Attack" value="ThrallBase_Attack"/>
+    <SoundArray index="Pissed" value="ThrallBase_Pissed"/>
+    <MinimapIconBackgroundScale value="0.950000"/>
+    <UnitIcon value="Assets\Textures\UI_targetportrait_Hero_Thrall.dds"/>
+    <GroupIcon>
+        <Image value="Assets\Textures\storm_ui_ingame_partyframe_thrall.dds"/>
+    </GroupIcon>
+</CActorUnit>
+
+<CActorSite id="ThrallChainLightning1LaunchSiteDummy" parent="SiteWeapon">
+  <On Terms="Effect.ThrallChainLightningDummyPersistent.Start; At Caster" Send="Create"/>
+</CActorSite>
+<CActorSite id="ThrallChainLightning1ImpactSiteDummy" parent="SiteCenter">
+  <On Terms="Effect.ThrallChainLightningDummyPersistent.Start; At Target" Send="Create"/>
+  <On Terms="ActorCreation" Send="SetOpacity 0.5"/>
+  <On Terms="ActorCreation" Send="RefSetFromRequest ::scope.Chain1Launch ThrallChainLightning1LaunchSiteDummy Implicit Find"/>
+  <On Terms="ActorCreation" Send="Create ThrallChainLightningLaunchSound"/>
+  <On Terms="ActorCreation" Send="Create ThrallChainLightningImpactSound"/>
+  <On Terms="ActorCreation" Send="Create ThrallChainLightning1Beam"/>
+</CActorSite>
+
+<CActorSound id="WizardTeleportCalamityImpactSound2" parent="SoundOneShot">
+  <On Terms="Effect.WizardTeleportCalamitySearch2.Start; At Caster" Send="Create" />
+  <Host Subject="_Unit" />
+  <Sound value="Wizard_TeleportCalamity_Impact" />
+</CActorSound>
+
+<CActorAction id="WizardMagicMissilesAttackLeftMirrorBall2" parent="GenericAttackPointStorm" effectImpact="WizardMagicMissilesMirrorBallImpactSet" effectLaunch="WizardMagicMissilesMirrorballLeftLM2">
+  <LaunchSiteOps Ops="SOpAttachCenter SOpMoveUpBy1 SOpMoveLeftBy3 SOpMoveLeftBy3" />
+  <Missile value="WizardMagicMissilesMissileLeftTA" />
+  <ImpactPointSiteOps Ops="SOpTargetPointStationary SOpShadow SOpMoveUpBy1" />
+  <ShieldFlashType value="None" />
+  <ImpactSound value="WizardMagicMissilesImpactSound" />
+</CActorAction>
+<CActorAction id="WizardMagicMissilesAttackRightMirrorBall2" parent="GenericAttackPointStorm" effectImpact="WizardMagicMissilesMirrorBallImpactSet" effectLaunch="WizardMagicMissilesMirrorballRightLM2">
+  <LaunchSiteOps Ops="SOpAttachCenter SOpMoveUpBy1 SOpMoveRightBy3 SOpMoveRightBy3" />
+  <Missile value="WizardMagicMissilesMissileRightTA" />
+  <ImpactPointSiteOps Ops="SOpTargetPointStationary SOpShadow SOpMoveUpBy1" />
+  <ShieldFlashType value="None" />
+  <ImpactSound value="WizardMagicMissilesImpactSound" />
+</CActorAction>
 
 </Catalog>

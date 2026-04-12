@@ -747,7 +747,7 @@ xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/jamiephan/Heroe
 </CBehaviorBuff>
 
 <CBehaviorBuff id="AffixFirstAid" parent="CarryBehaviorParent">
-  <Period value="0.5" />
+  <Period value="1" />
   <PeriodicEffect value="AffixFirstAidCreateHealer" />
 </CBehaviorBuff>
 
@@ -821,6 +821,81 @@ xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/jamiephan/Heroe
   <ExpireEffect value="AffixLastMomentsRemoveCooldown" />
   <Modification>
     <BehaviorLinkDisableArray value="AffixLastMoments" />
+  </Modification>
+</CBehaviorBuff>
+
+<CBehaviorBuff id="ThrallRangedCarry">
+  <BehaviorFlags index="Permanent" value="1" />
+  <BehaviorFlags index="EnabledWhileDead" value="1" />
+  <Modification>
+    <WeaponEnableArray value="ThrallHeroWeaponRanged" />
+  </Modification>
+</CBehaviorBuff>
+
+<CBehaviorBuff id="ThrallChainLightningStun" parent="StormStun">
+    <Duration value="0.5"/>
+</CBehaviorBuff>
+
+<CBehaviorBuff id="WizardMoveSpeedBuff" parent="StormShield">
+  <Duration value="3" />
+  <DamageResponse>
+    <UnifiedMoveSpeedFactor value="0.25" />
+  </DamageResponse>
+</CBehaviorBuff>
+
+<CBehaviorBuff id="LiMingGlass" parent="CarryBehaviorParent">
+  <Modification>
+    <VitalMaxFractionArray index="Life" value="-0.25" />
+  </Modification>
+</CBehaviorBuff>
+
+<CBehaviorBuff id="LiMingCriticalPowerCarry" parent="CarryBehaviorParent">
+  <Modification>
+    <HealDealtAdditiveMultiplier index="Life" value="0">
+      <AccumulatorArray value="LiMingCriticalPowerAccumulator" />
+    </HealDealtAdditiveMultiplier>
+    <HealDealtAdditiveMultiplier index="Shields" value="0">
+      <AccumulatorArray value="LiMingCriticalPowerAccumulator" />
+    </HealDealtAdditiveMultiplier>
+    <DamageDealtFraction index="Ability" value="0">
+      <AccumulatorArray value="LiMingCriticalPowerAccumulator" />
+    </DamageDealtFraction>
+  </Modification>
+</CBehaviorBuff>
+<CBehaviorTokenCounter id="LiMingCriticalPowerTokenCounter" parent="StormQuestToken">
+  <Face value="LiMingCriticalPowerTokenCounter" />
+  <Max value="10000" />
+</CBehaviorTokenCounter>
+
+<CBehaviorBuff id="LiMingWaveofDoomSpellArmor" parent="StormArmor">
+  <Duration value="0.5" />
+  <ArmorModification>
+    <ArmorSet index="Hero">
+      <ArmorMitigationTable index="Ability" value="-50" />
+    </ArmorSet>
+    <ArmorSet index="Merc">
+      <ArmorMitigationTable index="Ability" value="-50" />
+    </ArmorSet>
+    <ArmorSet index="Monster">
+      <ArmorMitigationTable index="Ability" value="-50" />
+    </ArmorSet>
+    <ArmorSet index="Summon">
+      <ArmorMitigationTable index="Ability" value="-50" />
+    </ArmorSet>
+    <ArmorSet index="Structure">
+      <ArmorMitigationTable index="Ability" value="-50" />
+    </ArmorSet>
+    <ArmorSet index="Minion">
+      <ArmorMitigationTable index="Ability" value="-50" />
+    </ArmorSet>
+  </ArmorModification>
+</CBehaviorBuff>
+
+<CBehaviorBuff id="LiMingSelfishPowerBuff" parent="CarryBehaviorParent">
+  <Modification>
+    <HealDealtAdditiveMultiplier index="Life" value="0.075" />
+    <HealDealtAdditiveMultiplier index="Shields" value="0.075" />
+    <DamageDealtFraction index="Ability" value="0.075" />
   </Modification>
 </CBehaviorBuff>
   

@@ -90,6 +90,9 @@ Button/Tooltip/WitchDoctorSpiritofArachyr2=Corpse Spiders summon <c val="#Toolti
 Button/Name/WitchDoctorSpiderColony2=Spider Colony II
 Button/SimpleDisplayText/WitchDoctorSpiderColony2=Increases cooldown reduction
 Button/Tooltip/WitchDoctorSpiderColony2=Reduces Corpse Spiders' cooldown by <c val="#TooltipNumbers">2</c> seconds and Mana cost by <c val="#TooltipNumbers">25</c>.
+Button/Name/DoNothing=Do Nothing
+Button/SimpleDisplayText/DoNothing=Does nothing.
+Button/Tooltip/DoNothing=Does nothing.
 
 Button/Name/AffixBuddyHeal=Healing Beam
 Button/SimpleDisplayText/AffixBuddyHeal=Your best friend will keep you alive!
@@ -110,7 +113,7 @@ Affix/Tooltip/ZombieHandler=Gain the benefits of all Zombie Wall talents.<n/><n/
 Affix/Tooltip/Append/ZombieHandler=
 Affix/Name/StructureHealth=Reinforced Walls
 Affix/Tooltip/StructureHealth=Increases maximum Health of allied Structures by <c val="#TooltipNumbers">15%</c>.
-Affix/Tooltip/Append/StructureHealth=<n/><n/>Maximum Health bonus: <c val="#TooltipNumbers"><d ref="Behavior,AffixStructureHealthBuff,Modification.VitalMaxFractionArray[Life]*100" player="11" precision="1"/>%</c>.
+Affix/Tooltip/Append/StructureHealth=<n/><n/>Maximum Health bonus: <c val="#TooltipNumbers"><d ref="Behavior,AffixStructureHealthBuff,Modification.VitalMaxFractionArray[Life]*100" player="11" precision="0"/>%</c>.
 Affix/Name/Bloodlust=Bloodlust
 Affix/Tooltip/Bloodlust=Increases Attack Speed by <c val="#TooltipNumbers">20%</c> and Movement Speed by <c val="#TooltipNumbers">17.5%</c><n/><n/>Basic Attacks heal for <c val="#TooltipNumbers">15%</c> of the damage dealt.
 Affix/Tooltip/Append/Bloodlust=<n/><n/>Attack Speed bonus: <c val="#TooltipNumbers"><d ref="Behavior,AffixBloodlust,Modification.AdditiveAttackSpeedFactor*100" precision="1"/>%</c><n/>Movement Speed bonus: <c val="#TooltipNumbers"><d ref="Behavior,AffixBloodlust,Modification.UnifiedMoveSpeedFactor*100" precision="1"/>%</c><n/>Lifesteal bonus: <c val="#TooltipNumbers"><d ref="Behavior,AffixBloodlust,Modification.VitalDamageLeechArray[Life].KindArray[Basic]*100" precision="1"/>%</c>
@@ -128,7 +131,7 @@ Affix/Tooltip/AARange=Increases Attack Range by <c val="#TooltipNumbers">1.1</c>
 Affix/Tooltip/Append/AARange=<n/><n/>Attack Range bonus: <c val="#TooltipNumbers"><d ref="Behavior,AffixAARange,Modification.WeaponRange" precision="1"/></c>
 Affix/Name/AASearing=Searing Attacks
 Affix/Tooltip/AASearing=Increases Attack Damage by <c val="#TooltipNumbers">25%</c>.<n/><n/>Additional stacks increase Attack Damage by <c val="#TooltipNumbers">10%</c>.
-Affix/Tooltip/Append/AASearing=<n/><n/>Attack Damage bonus: <c val="#TooltipNumbers"><d ref="Behavior,AffixAASearing,Modification.DamageDealtFraction[Basic]*100" precision="1"/>%</c>
+Affix/Tooltip/Append/AASearing=<n/><n/>Attack Damage bonus: <c val="#TooltipNumbers"><d ref="Behavior,AffixAASearing,Modification.DamageDealtFraction[Basic]*100" precision="0"/>%</c>
 Affix/Name/Buddy=BUDDY
 Affix/Tooltip/Buddy=A friendly Drone follows you around, healing you for <c val="#TooltipNumbers"><d ref="Effect,AffixBuddyHealCreateHealer,RechargeVitalRate" player="1" precision="0"/></c> Health every <c val="#TooltipNumbers">3</c> seconds.<n/><n/>BUDDY shoots a missile every <c val="#TooltipNumbers">4</c> seconds at the nearest enemy, dealing <c val="#TooltipNumbers"><d ref="Effect,AffixBuddyDroneMissileDamage,Amount" player="1" precision="0"/></c> damage in the area.<n/><n/>Additional stacks reduce BUDDY's missile cooldown by <c val="#TooltipNumbers">1</c> second and healing beam cooldown by <c val="#TooltipNumbers">0.25</c> seconds.
 Affix/Tooltip/Append/Buddy=<n/><n/>Healing cooldown: <c val="#TooltipNumbers"><d ref="Effect,AffixBuddyHealCreatePersistent,PeriodicPeriodArray[0]" precision="2"/></c> seconds<n/>Missile cooldown: <c val="#TooltipNumbers"><d ref="Behavior,AffixBuddyDroneController,Period" precision="2"/></c> seconds
@@ -177,7 +180,7 @@ Button/Name/AffixStructureQuestToken=Destruction
 Button/Tooltip/AffixStructureQuestToken=<c val="#TooltipQuest">Forts/Keeps destroyed: <c val="#TooltipNumbers" validator="AffixStructureQuestNotComplete"><d ref="$BehaviorStackCount:AffixStructureQuestToken$"/> / <d ref="Behavior,AffixStructureQuestToken,Max"/></c>
 Affix/Name/AASpeed=Nexus Frenzy
 Affix/Tooltip/AASpeed=Increases Attack Speed by <c val="#TooltipNumbers">15%</c>.<n/><n/>Additional stacks increase Attack Speed by <c val="#TooltipNumbers">8%</c>.
-Affix/Tooltip/Append/AASpeed=<n/><n/>Attack Speed bonus: <c val="#TooltipNumbers"><d ref="Behavior,AffixAASpeed,Modification.AdditiveAttackSpeedFactor*100" precision="1"/>%</c>
+Affix/Tooltip/Append/AASpeed=<n/><n/>Attack Speed bonus: <c val="#TooltipNumbers"><d ref="Behavior,AffixAASpeed,Modification.AdditiveAttackSpeedFactor*100" precision="0"/>%</c>
 Affix/Name/GladiatorsMedallion=Gladiator's Medallion
 Affix/Tooltip/GladiatorsMedallion=<c val="#TooltipNumbers">Cooldown: 60 seconds</c><n/><n/>Activate to become Unstoppable for <c val="#TooltipNumbers">2</c> seconds.<n/><n/>Additional stacks reduce the cooldown by <c val="#TooltipNumbers">20</c> seconds.
 Affix/Tooltip/Append/GladiatorsMedallion=<n/><n/>Cooldown: <c val="#TooltipNumbers"><d ref="Abil,AffixMedallion,Cost[0].Cooldown.TimeUse" precision="2"/></c><n/>Unstoppable duration: <c val="#TooltipNumbers"><d ref="Effect,AffixMedallionApplyCleanse,Duration" precision="2"/></c> seconds
@@ -207,6 +210,9 @@ Affix/Tooltip/Append/Bribery=<n/><n/>Cooldown: <c val="#TooltipNumbers"><d ref="
 Affix/Name/PathoftheWizard=Path of the Wizard
 Affix/Tooltip/PathoftheWizard=Increases maximum Mana by <c val="#TooltipNumbers">10</c> and Mana Regeneration by <c val="#TooltipNumbers">0.2</c> per second per level.
 Affix/Tooltip/Append/PathoftheWizard=<n/><n/>Maximum Mana bonus: <c val="#TooltipNumbers"><d ref="Behavior,AffixPathoftheWizard,Modification.VitalMaxArray[Energy]" precision="0"/></c><n/>Mana Regeneration bonus: <c val="#TooltipNumbers"><d ref="Behavior,AffixPathoftheWizard,Modification.VitalRegenArray[Energy]" precision="1"/></c>
+Affix/Name/PathoftheWizard2=Path of the Wizard
+Affix/Tooltip/PathoftheWizard2=Increases maximum Mana by <c val="#TooltipNumbers">10</c> and Mana Regeneration by <c val="#TooltipNumbers">0.2</c> per second per level.<n/><n/>Better to be a wizard than a mage.
+Affix/Tooltip/Append/PathoftheWizard2=<n/><n/>Maximum Mana bonus: <c val="#TooltipNumbers"><d ref="Behavior,AffixPathoftheWizard,Modification.VitalMaxArray[Energy]" precision="0"/></c><n/>Mana Regeneration bonus: <c val="#TooltipNumbers"><d ref="Behavior,AffixPathoftheWizard,Modification.VitalRegenArray[Energy]" precision="1"/></c>
 Affix/Name/PathoftheWarrior=Path of the Warrior
 Affix/Tooltip/PathoftheWarrior=Increases maximum Health by <c val="#TooltipNumbers">40</c> per level.
 Affix/Tooltip/Append/PathoftheWarrior=<n/><n/>Maximum Health bonus: <c val="#TooltipNumbers"><d ref="Behavior,AffixPathoftheWarrior,Modification.VitalMaxArray[Life]" precision="0"/></c>
@@ -227,10 +233,10 @@ Affix/Tooltip/ByeBye=Reduces your Team's Hearthstone cast time by <c val="#Toolt
 Affix/Tooltip/Append/ByeBye=
 Affix/Name/AmplifiedHealing=Amplified Healing
 Affix/Tooltip/AmplifiedHealing=Increases regeneration effects and all healing received by <c val="#TooltipNumbers">30%</c>.<n/><n/>Additional stacks increase regeneration effects and all healing received by <c val="#TooltipNumbers">10%</c>
-Affix/Tooltip/Append/AmplifiedHealing=<n/><n/>Healing received bonus: <c val="#TooltipNumbers"><d ref="Behavior,AffixAmplifiedHealing,Modification.HealTakenAdditiveMultiplier[Life]*100" precision="1"/>%</c>
+Affix/Tooltip/Append/AmplifiedHealing=<n/><n/>Healing received bonus: <c val="#TooltipNumbers"><d ref="Behavior,AffixAmplifiedHealing,Modification.HealTakenAdditiveMultiplier[Life]*100" precision="0"/>%</c>
 Affix/Name/GatheringPower=Gathering Power
 Affix/Tooltip/GatheringPower=Increases Spell Power by <c val="#TooltipNumbers">15%</c>.<n/><n/>Additional stacks increase Spell Power by <c val="#TooltipNumbers">10%</c>.
-Affix/Tooltip/Append/GatheringPower=<n/><n/>Spell Power bonus: <c val="#TooltipNumbers"><d ref="Behavior,AffixGatheringPower,Modification.DamageDealtFraction[Ability]*100" precision="1"/>%</c>
+Affix/Tooltip/Append/GatheringPower=<n/><n/>Spell Power bonus: <c val="#TooltipNumbers"><d ref="Behavior,AffixGatheringPower,Modification.DamageDealtFraction[Ability]*100" precision="0"/>%</c>
 Affix/Name/ConvenientPortals=Convenient Portals
 Affix/Tooltip/ConvenientPortals=Creates a permanent Portal between the top lane and the bottom lane, only usable by your Team.
 Affix/Tooltip/Append/ConvenientPortals=
@@ -367,28 +373,28 @@ Affix/Tooltip/MercLord=Friendly non-Boss Mercenaries near you deal <c val="#Tool
 Affix/Tooltip/Append/MercLord=
 Affix/Name/Besieger=Demolitionist
 Affix/Tooltip/Besieger=Increases damage dealt to Structures by <c val="#TooltipNumbers">15%</c>.
-Affix/Tooltip/Append/Besieger=<n/><n/>Damage bonus: <c val="#TooltipNumbers"><d ref="Behavior,AffixBesieger,Modification.DamageDealtAttributeMultiplier[Structure]*100" precision="1"/>%</c>
+Affix/Tooltip/Append/Besieger=<n/><n/>Damage bonus: <c val="#TooltipNumbers"><d ref="Behavior,AffixBesieger,Modification.DamageDealtAttributeMultiplier[Structure]*100" precision="0"/>%</c>
 Affix/Name/MinionKiller=Minion Killer
 Affix/Tooltip/MinionKiller=Increases damage dealt to Minions and Mercenaries by <c val="#TooltipNumbers">15%</c>.
-Affix/Tooltip/Append/MinionKiller=<n/><n/>Damage bonus: <c val="#TooltipNumbers"><d ref="Behavior,AffixMinionKiller,Modification.DamageDealtAttributeMultiplier[Minion]*100" precision="1"/>%</c>
+Affix/Tooltip/Append/MinionKiller=<n/><n/>Damage bonus: <c val="#TooltipNumbers"><d ref="Behavior,AffixMinionKiller,Modification.DamageDealtAttributeMultiplier[Minion]*100" precision="0"/>%</c>
 Affix/Name/FirstAid=First Aid
 Affix/Tooltip/FirstAid=Regenerate <c val="#TooltipNumbers">1%</c> of your maximum Health per second.<n/><n/>Additional stacks increase healing by <c val="#TooltipNumbers">0.5%</c> of maximum Health per second.
-Affix/Tooltip/Append/FirstAid=<n/><n/>Maximum Health regeneration bonus: <c val="#TooltipNumbers"><d ref="Effect,AffixFirstAidCreateHealer,RechargeVitalFraction*2*100" precision="1"/>%</c>
+Affix/Tooltip/Append/FirstAid=<n/><n/>Maximum Health regeneration bonus: <c val="#TooltipNumbers"><d ref="Effect,AffixFirstAidCreateHealer,RechargeVitalFraction*100" precision="2"/>%</c>
 Button/Name/AffixFirstAid=First Aid
 Button/SimpleDisplayText/AffixFirstAid=Regenerate health.
 Button/Tooltip/AffixFirstAid=Regenerate health.
 Affix/Name/Promote=Promote
 Affix/Tooltip/Promote=Allied Minions take <c val="#TooltipNumbers">25%</c> reduced damage from non-Heroic enemies and deal <c val="#TooltipNumbers">50%</c> increased damage to non-Heroic enemies.<n/><n/>Additional stacks increase the damage by <c val="#TooltipNumbers">20%</c>.
-Affix/Tooltip/Append/Promote=<n/><n/>Damage bonus: <c val="#TooltipNumbers"><d ref="(Behavior,AffixPromoteDamage,DamageResponse.ModifyFraction-1)*100" player="11" precision="1"/>%</c>
+Affix/Tooltip/Append/Promote=<n/><n/>Damage bonus: <c val="#TooltipNumbers"><d ref="(Behavior,AffixPromoteDamage,DamageResponse.ModifyFraction-1)*100" player="11" precision="0"/>%</c>
 Affix/Name/RegenerativeWalls=Automatic Repairs
 Affix/Tooltip/RegenerativeWalls=Allied Structures regenerate <c val="#TooltipNumbers">50</c> Health per second.<n/><n/>Does not affect your allied Core.
 Affix/Tooltip/Append/RegenerativeWalls=<n/><n/>Health regeneration bonus: <c val="#TooltipNumbers"><d ref="Behavior,RegenerativeWalls,Modification.VitalRegenArray[Life]" player="11" precision="0"/></c>
 Affix/Name/SpellLeech=Spell Leech
 Affix/Tooltip/SpellLeech=Abilities heal for <c val="#TooltipNumbers">10%</c> of the damage dealt.
-Affix/Tooltip/Append/SpellLeech=<n/><n/>Spell Lifesteal bonus: <c val="#TooltipNumbers"><d ref="Behavior,AffixSpellLeech,Modification.VitalDamageLeechArray[Life].KindArray[Ability]*100" precision="1"/>%</c>
+Affix/Tooltip/Append/SpellLeech=<n/><n/>Spell Lifesteal bonus: <c val="#TooltipNumbers"><d ref="Behavior,AffixSpellLeech,Modification.VitalDamageLeechArray[Life].KindArray[Ability]*100" precision="0"/>%</c>
 Affix/Name/Shield=Storm Shield
 Affix/Tooltip/Shield=Gain a Shield equal to <c val="#TooltipNumbers">25%</c> of your maximum Health. Shields regenerate quickly as long as you haven't taken damage recently.<n/><n/>Additional stacks increase the Shield by <c val="#TooltipNumbers">10%</c> of maximum Health.
-Affix/Tooltip/Append/Shield=<n/><n/>Shield equal to maximum Health: <c val="#TooltipNumbers"><d ref="Behavior,AffixShield,DamageResponse.ModifyLimitVitalMaxFractionArray[Life]*5*100" precision="1"/>%</c>
+Affix/Tooltip/Append/Shield=<n/><n/>Shield equal to maximum Health: <c val="#TooltipNumbers"><d ref="Behavior,AffixShield,DamageResponse.ModifyLimitVitalMaxFractionArray[Life]*5*100" precision="0"/>%</c>
 Affix/Name/SpellArmor=Spell Armor
 Affix/Tooltip/SpellArmor=Gain permanent <c val="#TooltipNumbers">10</c> Spell Armor.<n/><n/>Additional stacks increase Spell Armor by <c val="#TooltipNumbers">5</c>.
 Affix/Tooltip/Append/SpellArmor=<n/><n/>Spell Armor: <c val="#TooltipNumbers"><d ref="Behavior,AffixSpellArmor,ArmorModification.ArmorSet[Hero].ArmorMitigationTable[Ability]" precision="0"/></c>
@@ -401,6 +407,72 @@ Affix/Tooltip/Append/RegenerationRing=<n/><n/>Health regeneration bonus: <c val=
 Affix/Name/MagicRing=Ring of Magic
 Affix/Tooltip/MagicRing=You and allied Heroes recharge Ability cooldowns <c val="#TooltipNumbers">5%</c> faster.
 Affix/Tooltip/Append/MagicRing=<n/><n/>Cooldown reduction bonus: <c val="#TooltipNumbers"><d ref="$GalaxyVar:ringOfMagicModifier$*100" precision="0"/>%</c>
+Affix/Name/RangedThrall=Lightning Rod
+Affix/Tooltip/RangedThrall=Thrall's Basic Attack becomes ranged. Gain the benefits of Nexus Blades and Elemental Assault.<n/><n/>Increases Feral Spirit and Chain Lightning's range by <c val="#TooltipNumbers">50%</c>.
+Affix/Tooltip/Append/RangedThrall=
+Affix/Name/ThrallQuestsGalore=Quests Galore
+Affix/Tooltip/ThrallQuestsGalore=Gain the benefits of Echo of the Elements, Crash Lightning, Maelstrom Weapon, Frostwolf Pack, and Thunderstorm.<n/><n/>Retain <c val="#TooltipNumbers">75%</c> of Quest progress on these Quests.
+Affix/Tooltip/Append/ThrallQuestsGalore=
+Affix/Name/FrostwolfFury=Frostwolf's Fury
+Affix/Tooltip/FrostwolfFury=Gain the benefits of Frostwolf Pack, Ancestral Wrath, Frostwolf's Grace, and Spirit Shield.<n/><n/>Basic Attacks grant <c val="#TooltipNumbers">1</c> stack of Frostwolf Resilience.
+Affix/Tooltip/Append/FrostwolfFury=
+Affix/Name/InARush=In a Rush
+Affix/Tooltip/InARush=Increases Windfury's Movement Speed bonus by <c val="#TooltipNumbers">10%</c> and its duration by <c val="#TooltipNumbers">0.5</c> seconds.
+Affix/Tooltip/Append/InARush=<n/><n/>Movement Speed bonus: <c val="#TooltipNumbers"><d ref="(Behavior,WindfurySpeedBuff,Modification.UnifiedMoveSpeedFactor-0.3)*100" precision="0"/>%</c><n/>Duration bonus: <c val="#TooltipNumbers"><d ref="(Behavior,WindfurySpeedBuff,Duration-4)" precision="2"/></c> seconds
+Affix/Name/PinnedDown=Pinned Down
+Affix/Tooltip/PinnedDown=Increases Feral Spirit's Root duration by <c val="#TooltipNumbers">0.25</c> seconds.
+Affix/Tooltip/Append/PinnedDown=
+Affix/Name/ThrallQuickLightning=Quick Lightning
+Affix/Tooltip/ThrallQuickLightning=Reduces Chain Lightning's cooldown by <c val="#TooltipNumbers">3</c> seconds.
+Affix/Tooltip/Append/ThrallQuickLightning=
+Affix/Name/ThrallBreezingWind=Breeze
+Affix/Tooltip/ThrallBreezingWind=Reduces Windfury's cooldown by <c val="#TooltipNumbers">4</c> seconds and its Mana Cost by <c val="#TooltipNumbers">20</c>.
+Affix/Tooltip/Append/ThrallBreezingWind=
+Affix/Name/ThrallElectricShock=Electric Shock
+Affix/Tooltip/ThrallElectricShock=Chain Lightning Stuns enemies hit for <c val="#TooltipNumbers">0.5</c> seconds.
+Affix/Tooltip/Append/ThrallElectricShock=
+Affix/Name/ThrallEarthShatter=Earth Shatterer
+Affix/Tooltip/ThrallEarthShatter=Earthquake gains unlimited range.<n/><n/>Reduces Earthquake's cooldown by <c val="#TooltipNumbers">50</c> seconds.
+Affix/Tooltip/Append/ThrallEarthShatter=
+Affix/Name/ThrallCrushingSunder=Crushing Sunder
+Affix/Tooltip/ThrallCrushingSunder=Gain the benefits of Worldbreaker.<n/><n/>Increases Sundering's Stun duration by <c val="#TooltipNumbers">1.5</c> seconds.
+Affix/Tooltip/Append/ThrallCrushingSunder=
+Affix/Name/ThrallDoubleTrait=Critical Healing
+Affix/Tooltip/ThrallDoubleTrait=Frostwolf Resilience has a <c val="#TooltipNumbers">50%</c> chance to grant <c val="#TooltipNumbers">1</c> additional stack.
+Affix/Tooltip/Append/ThrallDoubleTrait=
+Affix/Name/LiMingTeleporter=Teleporter
+Affix/Tooltip/LiMingTeleporter=Gain the benefits of all Teleport talents. Calamity deals damage to all enemies hit.<n/><n/>Teleport gains unlimited range and grants <c val="#TooltipNumbers">25%</c> Movement Speed for <c val="#TooltipNumbers">3</c> seconds.
+Affix/Tooltip/Append/LiMingTeleporter=
+Affix/Name/LiMingMissileBarrage=Missile Barrage
+Affix/Tooltip/LiMingMissileBarrage=Gain the benefits of all Magic Missiles talents.<n/><n/>Magic Missiles fires a barage of <c val="#TooltipNumbers">20</c> missiles over <c val="#TooltipNumbers">1.25</c> seconds but its cooldown is increased to <c val="#TooltipNumbers">6</c> seconds. 
+Affix/Tooltip/Append/LiMingMissileBarrage=
+Affix/Name/LiMingOrbing=Orbing
+Affix/Tooltip/LiMingOrbing=Gain the benefits of all Arcane Orb talents.<n/><n/>Arcane Orb fires <c val="#TooltipNumbers">2</c> additional orbs in an arc.
+Affix/Tooltip/Append/LiMingOrbing=
+Affix/Name/LiMingCriticalPower=Critical Power
+Affix/Tooltip/LiMingCriticalPower=Takedowns increase Spell Power by <c val="#TooltipNumbers">1%</c>.<n/><n/>Retain Quest progress after winning the game.
+Affix/Tooltip/Append/LiMingCriticalPower=
+Button/Name/LiMingCriticalPowerTokenCounter=Critical Power
+Button/Tooltip/LiMingCriticalPowerTokenCounter=<c val="#TooltipQuest">Bonus Spell Power: <c val="#TooltipNumbers"><d ref="$BehaviorTokenCount:LiMingCriticalPowerTokenCounter$*100*(Accumulator,LiMingCriticalPowerAccumulator,Scale)" precision="0"/>%</c>
+Affix/Name/LiMingImprovedArchon=Improved Archon
+Affix/Tooltip/LiMingImprovedArchon=Reduces Disintegrate's cooldown to <c val="#TooltipNumbers">0.5</c> seconds and its Mana cost to <c val="#TooltipNumbers">5</c>.
+Affix/Tooltip/Append/LiMingImprovedArchon=
+Affix/Name/LiMingWaveofDeath=Wave of Doom
+Affix/Tooltip/LiMingWaveofDeath=Gain the benefits of Repulsion.<n/><n/>Wave of Force reduces the Spell Armor of enemy Heroes by <c val="#TooltipNumbers">50</c> for <c val="#TooltipNumbers">0.5</c> seconds.
+Affix/Tooltip/Append/LiMingWaveofDeath=
+Affix/Name/LiMingNeedMoreMana=Need More Mana!
+Affix/Tooltip/LiMingNeedMoreMana=Takedowns restore Mana equal to <c val="#TooltipNumbers">30%</c> of Li-Ming's maximum Mana.
+Affix/Tooltip/Append/LiMingNeedMoreMana=
+Affix/Name/LiMingSelfishPower=Selfish Power
+Affix/Tooltip/LiMingSelfishPower=Increases Spell Power by <c val="#TooltipNumbers">7.5%</c>.
+Affix/Tooltip/Append/LiMingSelfishPower=<n/><n/>Spell Power bonus: <c val="#TooltipNumbers"><d ref="Behavior,LiMingSelfishPowerBuff,Modification.DamageDealtFraction[Ability]*100" precision="1"/>%</c>
+Affix/Name/LiMingFarshot=Farshot
+Affix/Tooltip/LiMingFarshot=Increases Magic Missiles's range by <c val="#TooltipNumbers">15%</c>.
+Affix/Tooltip/Append/LiMingFarshot=<n/><n/>Range bonus: <c val="#TooltipNumbers"><d ref="-(Effect,WizardMagicMissilesLeftOffsetCP,InitialOffset.Y)-12" precision="2"/></c>
+Affix/Name/LiMingArcaneLoop=Arcane Loop
+Affix/Tooltip/LiMingArcaneLoop=Using a Basic Ability reduces the cooldown of your other Basic Abilities by <c val="#TooltipNumbers">0.75</c> seconds.
+Affix/Tooltip/Append/LiMingArcaneLoop=
+
 
 
 Affix/Name/Conversion=Possession
@@ -420,10 +492,10 @@ Affix/Tooltip/FaultyCatapults=Reduces Attack Speed of allied Catapults by <c val
 Affix/Tooltip/Append/FaultyCatapults=
 Affix/Name/EnemyDamage=Amplification
 Affix/Tooltip/EnemyDamage=Increases Spell Power and Attack Damage of ALL enemies by <c val="#TooltipNumbers">10%</c>.
-Affix/Tooltip/Append/EnemyDamage=<n/><n/>Spell Power and Attack Damage bonus: <c val="#TooltipNumbers"><d ref="Behavior,AffixEnemyDamageBuff,Modification.DamageDealtFraction[Ability]*100" precision="1"/>%</c>
+Affix/Tooltip/Append/EnemyDamage=<n/><n/>Spell Power and Attack Damage bonus: <c val="#TooltipNumbers"><d ref="Behavior,AffixEnemyDamageBuff,Modification.DamageDealtFraction[Ability]*100" precision="0"/>%</c>
 Affix/Name/EnemyHealth=Resilience
 Affix/Tooltip/EnemyHealth=Increases maximum Health of ALL enemies by <c val="#TooltipNumbers">15%</c>.
-Affix/Tooltip/Append/EnemyHealth=<n/><n/>Maximum Health bonus: <c val="#TooltipNumbers"><d ref="Behavior,AffixEnemyHealthBuff,Modification.VitalMaxFractionArray[Life]*100" precision="1"/>%</c>
+Affix/Tooltip/Append/EnemyHealth=<n/><n/>Maximum Health bonus: <c val="#TooltipNumbers"><d ref="Behavior,AffixEnemyHealthBuff,Modification.VitalMaxFractionArray[Life]*100" precision="0"/>%</c>
 Affix/Name/EnemySpeed=Chrono Boost
 Affix/Tooltip/EnemySpeed=Increases Movement Speed of ALL enemies by <c val="#TooltipNumbers">10%</c> and Ability recharge rate by <c val="#TooltipNumbers">25%</c>.
 Affix/Tooltip/Append/EnemySpeed=<n/><n/>Movement Speed bonus: <c val="#TooltipNumbers"><d ref="Behavior,AffixEnemySpeedBuff,Modification.UnifiedMoveSpeedFactor*100" precision="0"/>%</c><n/>Cooldown reduction bonus: <c val="#TooltipNumbers"><d ref="$GalaxyVar:enemySpeedModifier$*100" precision="1"/>%</c>
@@ -544,7 +616,7 @@ Affix/Tooltip/LostVikingsLost=Reduces your vision range to <c val="#TooltipNumbe
 Affix/Tooltip/Append/LostVikingsLost=
 Affix/Name/Blindfolded=Blindfolded
 Affix/Tooltip/Blindfolded=Reduces your vision range by <c val="#TooltipNumbers">2</c>.
-Affix/Tooltip/Append/Blindfolded=<n/><n/>Vision range: <c val="#TooltipNumbers"><d ref="Behavior,AffixBlindfolded,Modification.SightBonus*-1" precision="2"/></c>
+Affix/Tooltip/Append/Blindfolded=<n/><n/>Vision range reduction: <c val="#TooltipNumbers"><d ref="-Behavior,AffixBlindfolded,Modification.SightBonus" precision="2"/></c>
 Affix/Name/Injury=Injury
 Affix/Tooltip/Injury=You no longer naturally regenerate Health.
 Affix/Tooltip/Append/Injury=
@@ -560,3 +632,19 @@ Affix/Tooltip/Append/ExpensiveAttacks=
 Affix/Name/LastMoments=Last Moments
 Affix/Tooltip/LastMoments=Last Rites is cast on you when your Health drops below <c val="#TooltipNumbers">35%</c>.<n/><n/>This effect has a <c val="#TooltipNumbers">300</c> second cooldown.<n/><n/>Additional stacks reduce the cooldown by <c val="#TooltipNumbers">60</c> seconds.
 Affix/Tooltip/Append/LastMoments=<n/><n/>Cooldown: <c val="#TooltipNumbers"><d ref="Behavior,AffixLastMomentsCooldown,Duration" precision="2"/></c> seconds
+Affix/Name/Slowfury=Slowfury
+Affix/Tooltip/Slowfury=Reduces Windfury's Attack Speed bonus by <c val="#TooltipNumbers">50%</c>.<n/><n/><c val="FFDE36">Skips the next Curse.</c>
+Affix/Tooltip/Append/Slowfury=
+Affix/Name/BadMannerism=Bad Mannerism
+Affix/Tooltip/BadMannerism=Enemy Heroes will spam Hearthstone, sprays, and voice lines at you.
+Affix/Tooltip/Append/BadMannerism=
+Affix/Name/TowerShredder=Shredder
+Affix/Tooltip/TowerShredder=Increases the Armor reduction from enemy Structures by <c val="#TooltipNumbers">5</c>.
+Affix/Tooltip/Append/TowerShredder=<n/><n/>Armor reduction bonus: <c val="#TooltipNumbers"><d ref="-(Behavior,TownRampingArmorShred,ArmorModification.AllArmorBonus+20)" player="12" precision="0"/></c>
+Affix/Name/TowerSlow=Debilitating Shots
+Affix/Tooltip/TowerSlow=Enemy Core, Fort, and Keep attacks reduce Attack Speed and Movement Speed by <c val="#TooltipNumbers">40%</c> for <c val="#TooltipNumbers">2.5</c> seconds.
+Affix/Tooltip/Append/TowerSlow=
+Affix/Name/LiMingGlass=Glass
+Affix/Tooltip/LiMingGlass=Reduces your maximum Health by <c val="#TooltipNumbers">25%</c>.<n/><n/><c val="FFDE36">Skips the next Curse.</c>
+Affix/Tooltip/Append/LiMingGlass=
+

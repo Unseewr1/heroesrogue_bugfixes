@@ -310,4 +310,43 @@ xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/jamiephan/Heroe
     <EffectArray index="Birth" value="LostVikingsEnumControllerUnit" />
   </CUnit>
 
+  <CUnit id="HeroThrall" parent="StormHeroMounted">
+    <LifeStart value="1946"/>
+    <LifeMax value="1946"/>
+    <AbilArray Link="ThrallFeralSpirit"/>
+    <AbilArray Link="ThrallWindfury"/>
+    <AbilArray Link="ThrallSundering"/>
+    <AbilArray Link="ThrallChainLightning"/>
+    <AbilArray Link="ThrallEarthquake"/>
+    <AbilArray Link="ThrallFrostwolfsGrace"/>
+    <AbilArray Link="ThrallCancelSundering"/>
+    <BehaviorArray Link="ExcellentMana"/>
+    <BehaviorArray Link="ThrallFrostwolfResilienceDamageResponse"/>
+    <WeaponArray Link="ThrallHeroWeapon"/>
+    <WeaponArray Link="ThrallHeroWeaponRanged"/>
+    <CardLayouts index="0">
+        <LayoutButtons Face="ThrallSunderingCancel" Type="AbilCmd" AbilCmd="ThrallCancelSundering,Execute" Slot="Heroic"/>
+        <LayoutButtons Face="Sundering" Type="AbilCmd" AbilCmd="ThrallSundering,Execute" Slot="Heroic"/>
+        <LayoutButtons Face="ThrallEarthquake" Type="AbilCmd" AbilCmd="ThrallEarthquake,Execute" Slot="Heroic"/>
+        <LayoutButtons Face="ThrallChainLightning" Type="AbilCmd" AbilCmd="ThrallChainLightning,Execute" Slot="Ability1"/>
+        <LayoutButtons Face="ThrallFeralSpirit" Type="AbilCmd" AbilCmd="ThrallFeralSpirit,Execute" Slot="Ability2"/>
+        <LayoutButtons Face="Windfury" Type="AbilCmd" AbilCmd="ThrallWindfury,Execute" Slot="Ability3"/>
+        <LayoutButtons Face="ThrallFrostwolfResilience" Type="AbilCmd" AbilCmd="ThrallFrostwolfsGrace,Execute" Slot="Trait"/>
+        <LayoutButtons Face="ThrallFrostwolfResilience" Type="Passive" Slot="Trait"/>
+    </CardLayouts>
+    <Radius value="0.75"/>
+    <InnerRadius value="0.75"/>
+    <LifeRegenRate value="4.0546"/>
+    <AIEvalFactor value="1.2"/>
+    <AIThinkTree value="AI/Thrall.aitree"/>
+    <InitializerFunction value="libGDHL_gf_HeroThrallIncrementHeroCountFunction"/>
+    <DestructionFunction value="libGDHL_gf_HeroThrallDecrementHeroCountFunction"/>
+    <EffectArray index="Death" value="ThrallHeroDeathSet"/>
+    <HeroPlaystyleFlags index="EnergyImportant" value="1"/>
+    <HeroPlaystyleFlags index="Escaper" value="1"/>
+    <HeroPlaystyleFlags index="Ganker" value="1"/>
+    <HeroPlaystyleFlags index="Overconfident" value="1"/>
+    <HeroPlaystyleFlags index="RoleAutoAttacker" value="1"/>
+</CUnit>
+
 </Catalog>

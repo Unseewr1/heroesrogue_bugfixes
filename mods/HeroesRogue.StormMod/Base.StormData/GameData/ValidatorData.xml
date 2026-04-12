@@ -173,4 +173,11 @@ xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/jamiephan/Heroe
   <Value value="0.35" />
 </CValidatorUnitCompareVital>
 
+
+<CValidatorUnitCompareBehaviorCount id="CasterHasThrallRangedCarry">
+  <WhichUnit Value="Caster" />
+  <Compare value="GT" />
+  <Behavior value="ThrallRangedCarry" />
+</CValidatorUnitCompareBehaviorCount>
+
 </Catalog>

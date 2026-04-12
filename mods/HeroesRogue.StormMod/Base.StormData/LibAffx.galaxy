@@ -1293,15 +1293,36 @@ void libAffx_CatalogFieldValueAddFixed(int catalog, string entry, string fieldPa
 
 fixed libAffx_GetCatalogDefault(int catalog, string entry, string fieldPath) {
     return StringToFixed(CatalogFieldValueGet(catalog, entry, fieldPath, 0));
+    
 }
 
 void libAffx_CatalogFieldValueSetFixed(int catalog, string entry, string fieldPath, int player, fixed value) {
-    if (player == libAffx_choPlayer || player == libAffx_gallPlayer) {
+    if (player != 0 && (player == libAffx_choPlayer || player == libAffx_gallPlayer)) {
         CatalogFieldValueSetFixed(catalog, entry, fieldPath, libAffx_gallPlayer, value);
         CatalogFieldValueSetFixed(catalog, entry, fieldPath, libAffx_choPlayer, value);
     } else {
         CatalogFieldValueSetFixed(catalog, entry, fieldPath, player, value);
     }
+}
+
+void libAffx_CatalogReferenceModify (string reference, int player, string value) {
+    if (player != 0 && (player == libAffx_choPlayer || player == libAffx_gallPlayer)) {
+        CatalogReferenceModify(reference, libAffx_choPlayer, value, c_upgradeOperationSet);
+        CatalogReferenceModify(reference, libAffx_gallPlayer, value, c_upgradeOperationSet);
+    } else {
+        CatalogReferenceModify(reference, player, value, c_upgradeOperationSet);
+    }
+}
+
+string libAffx_StringFraction(int value) {
+    string fraction = IntToString(value % 1000);
+    if (fraction == "0") { 
+    } else if (StringLength(fraction) == 1) {
+        fraction = "00" + fraction;
+    } else if (StringLength(fraction) == 2) {
+        fraction = "0" + fraction;
+    }
+    return (IntToString(value / 1000) + "." + fraction);
 }
 
 // --------------------------------------------------------------------------------
@@ -1348,7 +1369,7 @@ void libAffx_ApplyCatalogModifications(int affix, int amount) {
             } else if (catalogType == libAffx_catalogTypePerStackDelta) {
                 catalogValueString = FixedToString(catalogValue * amount, c_fixedPrecisionAny);
             } else if (catalogType == libAffx_catalogTypePerStackDeltaExclFirst) {
-                if (libAffx_affixes[affix].count <= 0 || amount > 1) {
+                if (libAffx_affixes[affix].count <= 1 || amount > 1) {
                     catalogValueString = FixedToString(catalogValue * (amount - 1), c_fixedPrecisionAny);
                 } else {
                     catalogValueString = FixedToString(catalogValue * amount, c_fixedPrecisionAny);
@@ -2735,6 +2756,8 @@ bool libAffx_CurateHeroesTrigger_Func (bool testConds, bool runActions) {
 
     DialogControlSetVisible(libPBU2_gv_curateHeroSelectionUI.lv_heroButtonBordersAffixed[libPBU2_ge_CurateHeroSelectionRole_Tank][11], PlayerGroupAll(), true);
     DialogControlSetVisible(libPBU2_gv_curateHeroSelectionUI.lv_heroButtonBordersAffixed[libPBU2_ge_CurateHeroSelectionRole_Healer][14], PlayerGroupAll(), true);
+    DialogControlSetVisible(libPBU2_gv_curateHeroSelectionUI.lv_heroButtonBordersAffixed[libPBU2_ge_CurateHeroSelectionRole_Bruiser][14], PlayerGroupAll(), true);
+    DialogControlSetVisible(libPBU2_gv_curateHeroSelectionUI.lv_heroButtonBordersAffixed[libPBU2_ge_CurateHeroSelectionRole_RangedAssassin1][15], PlayerGroupAll(), true);
     DialogControlSetVisible(libPBU2_gv_curateHeroSelectionUI.lv_heroButtonBordersAffixed[libPBU2_ge_CurateHeroSelectionRole_RangedAssassin2][1], PlayerGroupAll(), true);
     DialogControlSetVisible(libPBU2_gv_curateHeroSelectionUI.lv_heroButtonBordersAffixed[libPBU2_ge_CurateHeroSelectionRole_MeleeAssassin][4], PlayerGroupAll(), true);
     DialogControlSetVisible(libPBU2_gv_curateHeroSelectionUI.lv_heroButtonBordersAffixed[libPBU2_ge_CurateHeroSelectionRole_MeleeAssassin][6], PlayerGroupAll(), true);
@@ -3097,6 +3120,8 @@ void libAffx_AffixSetHeroStartersOnly(int affix, bool allowed) {
     libAffx_affixes[affix].allowedHero[libCore_gf_GetIndexFromHero("Muradin")] = allowed;
     libAffx_affixes[affix].allowedHero[libCore_gf_GetIndexFromHero("LostVikings")] = allowed;
     libAffx_affixes[affix].allowedHero[libCore_gf_GetIndexFromHero("Tyrande")] = allowed;
+    libAffx_affixes[affix].allowedHero[libCore_gf_GetIndexFromHero("Thrall")] = allowed;
+    libAffx_affixes[affix].allowedHero[libCore_gf_GetIndexFromHero("Wizard")] = allowed;
 }
 void libAffx_AffixSetMap(int affix, int map, bool allowed) {
     libAffx_affixes[affix].allowedMap[map] = allowed;

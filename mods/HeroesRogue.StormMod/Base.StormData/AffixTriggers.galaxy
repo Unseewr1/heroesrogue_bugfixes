@@ -2788,10 +2788,16 @@ bool libAffx_BlindfoldedAffixAdded (bool testConds, bool runActions) {
 // First Aid
 // ---------------------------------------------------------------
 bool libAffx_FirstAidAffixAdded (bool testConds, bool runActions) {
+    int stacks = libAffx_EventAffixCount();
+    int base = 10;
+    int modifier = 5;
+    int total = base + (modifier * (stacks - 1));
     if (!runActions) {
         return true;
     }
-    libAffx_CatalogFieldValueSetFixed(c_gameCatalogEffect, "AffixFirstAidCreateHealer", "RechargeVitalFraction", libAffx_player, libAffx_GetCatalogDefault(c_gameCatalogEffect, "AffixFirstAidCreateHealer", "RechargeVitalFraction") + (0.0025 * (libAffx_EventAffixCount() - 1)));
+    
+    libAffx_DebugPrint("Value: " + libAffx_StringFraction(total));
+    libAffx_CatalogReferenceModify("Effect,AffixFirstAidCreateHealer,RechargeVitalFraction", libAffx_player, libAffx_StringFraction(total));
 
     return true;
 }
@@ -2886,6 +2892,120 @@ bool libAffx_LastMomentsAffixAdded (bool testConds, bool runActions) {
         return true;
     }
     libAffx_CatalogSetFixedForAllPlayers(c_gameCatalogBehavior, "AffixLastMomentsCooldown", "Duration", 300 - (60 * (libAffx_EventAffixCount() - 1)));
+    return true;
+}
+// ---------------------------------------------------------------
+// Execute Once
+// ---------------------------------------------------------------
+bool libAffx_RangedThrallExecuteOnce (bool testConds, bool runActions) {
+    if (!runActions) {
+        return true;
+    }
+    libAffx_AffixSetHero(libAffx_GetAffixId("AARange"), "Thrall", true);
+    return true;
+}
+// ---------------------------------------------------------------
+// Quests Galore
+// ---------------------------------------------------------------
+bool libAffx_ThrallQuestsGaloreExecuteOnce (bool testConds, bool runActions) {
+    if (!runActions) {
+        return true;
+    }
+    TalentTreeSetSelectedHeroTalent(libAffx_player, 1, 1);
+    libGame_gf_TalentsUpdateChoicePanelForPlayer(libAffx_player);
+    return true;
+}
+// ---------------------------------------------------------------
+// Bad Mannerism
+// ---------------------------------------------------------------
+bool libAffx_BadMannerismPeriodic (bool testConds, bool runActions) {
+    int random = RandomInt(6, 10);
+    unitgroup nearbyUnits;
+    unit bmUnit = libGame_gv_players[random].lv_heroUnit;
+    unit playerUnit;
+    int nearbyUnitsCount;
+    int i;
+    if (testConds) {
+        if (!UnitIsAlive(bmUnit)) {
+            return false;
+        }
+        if (UnitHasBehavior2(bmUnit, "Mounted")) {
+            return false;
+        }
+    }
+    if (!runActions) {
+        return true;
+    }
+    
+    nearbyUnits = UnitGroup(null, libAffx_player, RegionCircle(UnitGetPosition(bmUnit), 12), null, 0);
+    nearbyUnitsCount = UnitGroupCount(nearbyUnits, c_unitCountAll);
+    for (;; nearbyUnitsCount -= 1) {
+        if (nearbyUnitsCount <= 0) { break; }
+        playerUnit = UnitGroupUnitFromEnd(nearbyUnits, nearbyUnitsCount);
+        if (UnitTypeTestAttribute(UnitGetType(bmUnit), c_unitAttributeHeroic)) {
+            random = RandomInt(1, 100);
+            if (random <= 66) {
+                UnitIssueOrder(bmUnit, Order(AbilityCommand("LootSpray", 0)), c_orderQueueReplace);
+            } else if (random <= 88) {
+                UnitIssueOrder(bmUnit, Order(AbilityCommand("LootYellVoiceLine", 0)), c_orderQueueReplace);
+            } else {
+                for (i = 1; i <= 9; i += 1) {
+                    UnitIssueOrder(bmUnit, Order(AbilityCommand("Hearthstone", 0)), c_orderQueueReplace);
+                    libAffx_Wait(0.0625, c_timeGame);
+                    UnitIssueOrder(bmUnit, Order(AbilityCommand("stop", 0)), c_orderQueueReplace);
+                    libAffx_Wait(0.0625, c_timeGame);
+                }
+            }
+        }
+    }
+    return true;
+}
+// ---------------------------------------------------------------
+// Critical Power
+// ---------------------------------------------------------------
+bool libAffx_LiMingCriticalPowerHeroTakedown (bool testConds, bool runActions) {
+    int player = libGame_gf_HeroParticipatedInTakedownKillingPlayer();
+    unit killerUnit = libGame_gv_players[player].lv_heroUnit;
+    unit deadUnit = libGame_gf_HeroParticipatedInTakedownKilledHero();
+
+    if (testConds) {
+        if ((player != libAffx_player)) {
+            return false;
+        }
+        if (UnitTestState(deadUnit, c_unitStateHallucination)) {
+            return false;
+        }
+    }
+    if (!runActions) {
+        return true;
+    }
+
+    UnitCreateEffectUnit(killerUnit, "LiMingCriticalPowerIncrementToken", killerUnit);
+    
+    return true;
+}
+// ---------------------------------------------------------------
+// Need More Mana
+// ---------------------------------------------------------------
+bool libAffx_LiMingNeedMoreManaHeroTakedown (bool testConds, bool runActions) {
+    int player = libGame_gf_HeroParticipatedInTakedownKillingPlayer();
+    unit killerUnit = libGame_gv_players[player].lv_heroUnit;
+    unit deadUnit = libGame_gf_HeroParticipatedInTakedownKilledHero();
+
+    if (testConds) {
+        if ((player != libAffx_player)) {
+            return false;
+        }
+        if (UnitTestState(deadUnit, c_unitStateHallucination)) {
+            return false;
+        }
+    }
+    if (!runActions) {
+        return true;
+    }
+
+    UnitCreateEffectUnit(killerUnit, "WizardDominanceManaHealerAffix", killerUnit);
+    
     return true;
 }
 

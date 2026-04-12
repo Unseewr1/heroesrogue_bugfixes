@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/jamiephan/HeroesOfTheStorm_Gamedata/master/xsd/latest.xsd">
+<CHero id="Thrall">
+  <TalentTreeArray Talent="DoNothing" Tier="1" Column="4" />
+</CHero>
 <CHero id="WitchDoctor" parent="LegacyVOHero">
     <AttributeId value="Witc" />
     <Flags index="GoodForModeA" value="1" />

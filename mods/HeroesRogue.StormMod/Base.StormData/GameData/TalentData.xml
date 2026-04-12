@@ -2,6 +2,10 @@
 <Catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/jamiephan/HeroesOfTheStorm_Gamedata/master/xsd/latest.xsd">
 
+<CTalent id="DoNothing">
+  <Face value="DoNothing" />
+</CTalent>
+
 <CTalent id="WitchDoctorWidowmakers2">
     <Face value="WitchDoctorWidowmakers2" />
     <Abil value="WitchDoctorCorpseSpiders" />
@@ -86,6 +90,28 @@ xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/jamiephan/Heroe
         <Value value="-20" />
       </Modifications>
     </AbilityModificationArray>
+  </CTalent>
+
+  
+  <CTalent id="WizardFirefliesMirrorball">
+    <Face value="WizardFireflies" />
+    <AbilityModificationArray>
+      <Modifications>
+        <Type value="StringReplacement" />
+        <Catalog value="Unit" />
+        <Entry value="WizardMagicMissilesMissileLeftTA" />
+        <Field value="Mover" />
+        <StringReplacement value="WizardMagicMissilesMissileMoverTA" />
+      </Modifications>
+      <Modifications>
+        <Type value="StringReplacement" />
+        <Catalog value="Unit" />
+        <Entry value="WizardMagicMissilesMissileRightTA" />
+        <Field value="Mover" />
+        <StringReplacement value="WizardMagicMissilesMissileMoverTA" />
+      </Modifications>
+    </AbilityModificationArray>
+    <Abil value="WizardMagicMissiles" />
   </CTalent>
 
 </Catalog>

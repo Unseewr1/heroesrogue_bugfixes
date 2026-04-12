@@ -60,4 +60,11 @@ xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/jamiephan/Heroe
     <MaxAccumulation value="99999"/>
   </CAccumulatorVitals>
 
+  <CAccumulatorToken id="LiMingCriticalPowerAccumulator" parent="BaseAccumulator">
+    <ApplicationRule value="Add" />
+    <TokenId value="LiMingCriticalPowerTokenCounter" />
+    <Scale value="0.01" />
+    <MaxAccumulation value="100" />
+  </CAccumulatorToken>
+
 </Catalog>
