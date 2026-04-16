@@ -30,13 +30,14 @@ Label/Name/RaritySuffixNone=</c>
 
 Affix/Quest=<img path="@UI/StormTalentInTextQuestIcon" alignment="uppermiddle" color="B48E4C" width="20" height="22"/>
 
-LoadingScreen/Help00=Gain boons at level 1, 4, 7, and 10, and curses every enemy talent tier.
+LoadingScreen/Help00=You gain boons at level 1, 4, 7, and 10, and curses every enemy talent tier.
 LoadingScreen/Help01=Completing map objectives replaces a future curse with a boon, once per game.
 LoadingScreen/Help02=Some curses are more powerful than others, choose carefully!
 LoadingScreen/Help03=Certain boons and curses appear only on specific maps or Heroes.
 LoadingScreen/Help04=Boons or curses can stack its effect.
 LoadingScreen/Help05=Heroes with a golden border have unique boons which only appear at the start of the run.
 LoadingScreen/Help06=You can reroll boons or curses you don't like.
+LoadingScreen/Help07=You gain a powerful legendary boon every 5 games.
 
 UI/MapLoadingScreen/LibAffx/Description1=Gain powerful, permanent boons throughout your run to increase your and your team's strength!
 UI/MapLoadingScreen/LibAffx/Description2=The game becomes more difficult over time as you obtain dangerous curses.
@@ -81,7 +82,7 @@ Button/Name/Normal=Heroic
 Button/Name/Hard=Mythic
 Button/Tooltip/Easy=No changes.
 Button/Tooltip/Normal=• Increases maximum Health and Mana, Health and Mana regeneration, and damage dealt of enemy Heroes by <c val="#TooltipNumbers">4%</c> every game. Stacks multiplicatively.
-Button/Tooltip/Hard=• Increases maximum Health and Mana, Health and Mana regeneration, and damage dealt of ALL enemies by <c val="#TooltipNumbers">4%</c> every game. Stacks multiplicatively.<n/>• Increases enemies's Experience gain by <c val="#TooltipNumbers">1%</c> every game.<n/>• Obtain a powerful Mythic Curse every <c val="#TooltipNumbers">4</c> games.
+Button/Tooltip/Hard=• Increases maximum Health and Mana, Health and Mana regeneration, and damage dealt of ALL enemies by <c val="#TooltipNumbers">4%</c> every game. Stacks multiplicatively.<n/>• Increases enemies's Experience gain by <c val="#TooltipNumbers">1%</c> every game.<n/>• Obtain a powerful Mythic Curse every <c val="#TooltipNumbers">5</c> games.
 Affix/Name/DifficultyEasy=Normal
 Affix/Tooltip/DifficultyEasy=No changes.
 Affix/Tooltip/Append/DifficultyEasy=
@@ -89,7 +90,7 @@ Affix/Name/DifficultyNormal=Heroic
 Affix/Tooltip/DifficultyNormal=Increases maximum Health and Mana, Health and Mana regeneration, and damage dealt of enemy Heroes by <c val="#TooltipNumbers">4%</c> every game. Stacks multiplicatively.
 Affix/Tooltip/Append/DifficultyNormal=<n/><n/>Stats bonus: <c val="#TooltipNumbers"><d ref="Behavior,AffixDifficultyBuff,Modification.DamageDealtFraction[Ability]*100" precision="0"/>%</c>
 Affix/Name/DifficultyHard=Mythic
-Affix/Tooltip/DifficultyHard=Increases maximum Health and Mana, Health and Mana regeneration, and damage dealt of ALL enemies by <c val="#TooltipNumbers">4%</c> every game. Stacks multiplicatively.<n/><n/>Increases enemies's Experience gain by <c val="#TooltipNumbers">1%</c> every game.<n/><n/>Obtain a powerful Mythic Curse every <c val="#TooltipNumbers">4</c> games.
+Affix/Tooltip/DifficultyHard=Increases maximum Health and Mana, Health and Mana regeneration, and damage dealt of ALL enemies by <c val="#TooltipNumbers">4%</c> every game. Stacks multiplicatively.<n/><n/>Increases enemies's Experience gain by <c val="#TooltipNumbers">1%</c> every game.<n/><n/>Obtain a powerful Mythic Curse every <c val="#TooltipNumbers">5</c> games.
 Affix/Tooltip/Append/DifficultyHard=<n/><n/>Stats bonus: <c val="#TooltipNumbers"><d ref="Behavior,AffixDifficultyBuff,Modification.DamageDealtFraction[Ability]*100" precision="0"/>%</c><n/>XP boost: <c val="#TooltipNumbers"><d ref="($GalaxyVar:libAffx_difficultyXPMod$)*100" precision="2"/>%</c>
 
 Button/Name/WitchDoctorWidowmakers2=Widowmakers II
