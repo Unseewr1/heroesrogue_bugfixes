@@ -3836,7 +3836,7 @@ bool libAffx_AncientBlessingsScaling (bool testConds, bool runActions) {
     return true;
 }
 // ---------------------------------------------------------------
-// Ancient Blessings
+// Machine Gunner
 // ---------------------------------------------------------------
 bool libAffx_SgtHammerMachineGunnerOncePerGame (bool testConds, bool runActions) {
     unit heroUnit = libAffx_GetHeroUnit(libAffx_player);
