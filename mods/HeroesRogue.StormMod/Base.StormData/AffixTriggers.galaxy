@@ -3291,7 +3291,7 @@ void SyncDVaLastMomentsCooldowns() {
 bool libAffx_LastMomentsPeriodic (bool testConds, bool runActions) {
     fixed behaviorDuration;
     unit heroUnit = libAffx_GetHeroUnit(libAffx_player);
-	  string heroUnitType = UnitGetType(heroUnit);
+	string heroUnitType = UnitGetType(heroUnit);
 
     if (testConds) {
         if (libAffx_lastMomentsIndex == 0) {
