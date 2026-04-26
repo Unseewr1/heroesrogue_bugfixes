@@ -1099,6 +1099,9 @@
             <String String="AA libAffx_KillContractAffixAdded">
                 <Field Id="Trigger" Index="3"/>
             </String>
+            <String String="UBCreate libAffx_KillContractUnitBehaviorCreate AffixKillContractQuestToken">
+                <Field Id="Trigger" Index="4"/>
+            </String>
         </Instances>
         <Instances Id="Fortifications">
             <Int Int="1">
@@ -1335,47 +1338,44 @@
             <String String="Assets/Textures/affix_icon_scoutingdrone_multiple.dds">
                 <Field Id="Icon"/>
             </String>
-            <String String="2 0 AffixBuddyDroneSpawnBehavior">
-                <Field Id="Behavior"/>
-            </String>
-            <String String="3 0 AffixBuddyDroneSpawnBehavior">
-                <Field Id="Behavior" Index="1"/>
-            </String>
-            <String String="4 0 AffixBuddyDroneSpawnBehavior">
-                <Field Id="Behavior" Index="2"/>
-            </String>
-            <String String="5 0 AffixBuddyDroneSpawnBehavior">
-                <Field Id="Behavior" Index="3"/>
-            </String>
-            <String String="LU libAffx_BuddyAllLevelUp">
+            <String String="OPG libAffx_BuddyAllOncePerGame">
                 <Field Id="Trigger"/>
             </String>
-            <String String="AA libaffx_BuddyAllAffixAdded">
+            <String String="LU libAffx_BuddyAllLevelUp">
                 <Field Id="Trigger" Index="1"/>
             </String>
-            <String String="2 6 Multiply Effect,AffixBuddyHealCreateHealer,RechargeVitalRate 0.5">
+            <String String="AA libaffx_BuddyAllAffixAdded">
+                <Field Id="Trigger" Index="2"/>
+            </String>
+            <String String="2 6 Multiply Effect,AffixBuddyHealCreateHealer,RechargeVitalRate 0.75">
                 <Field Id="CatalogModification"/>
             </String>
-            <String String="2 6 Multiply Effect,AffixBuddyDroneMissileDamage,Amount 0.5">
+            <String String="2 6 Multiply Effect,AffixBuddyDroneMissileDamage,Amount 0.75">
                 <Field Id="CatalogModification" Index="1"/>
             </String>
-            <String String="3 6 Multiply Effect,AffixBuddyHealCreateHealer,RechargeVitalRate 0.5">
+            <String String="3 6 Multiply Effect,AffixBuddyHealCreateHealer,RechargeVitalRate 0.75">
                 <Field Id="CatalogModification" Index="2"/>
             </String>
-            <String String="4 6 Multiply Effect,AffixBuddyHealCreateHealer,RechargeVitalRate 0.5">
+            <String String="4 6 Multiply Effect,AffixBuddyHealCreateHealer,RechargeVitalRate 0.75">
                 <Field Id="CatalogModification" Index="4"/>
             </String>
-            <String String="5 6 Multiply Effect,AffixBuddyHealCreateHealer,RechargeVitalRate 0.5">
+            <String String="5 6 Multiply Effect,AffixBuddyHealCreateHealer,RechargeVitalRate 0.75">
                 <Field Id="CatalogModification" Index="6"/>
             </String>
-            <String String="3 6 Multiply Effect,AffixBuddyDroneMissileDamage,Amount 0.5">
+            <String String="3 6 Multiply Effect,AffixBuddyDroneMissileDamage,Amount 0.75">
                 <Field Id="CatalogModification" Index="3"/>
             </String>
-            <String String="4 6 Multiply Effect,AffixBuddyDroneMissileDamage,Amount 0.5">
+            <String String="4 6 Multiply Effect,AffixBuddyDroneMissileDamage,Amount 0.75">
                 <Field Id="CatalogModification" Index="5"/>
             </String>
-            <String String="5 6 Multiply Effect,AffixBuddyDroneMissileDamage,Amount 0.5">
+            <String String="5 6 Multiply Effect,AffixBuddyDroneMissileDamage,Amount 0.75">
                 <Field Id="CatalogModification" Index="7"/>
+            </String>
+            <String String="1 6 Multiply Effect,AffixBuddyHealCreateHealer,RechargeVitalRate 0.75">
+                <Field Id="CatalogModification" Index="8"/>
+            </String>
+            <String String="1 6 Multiply Effect,AffixBuddyDroneMissileDamage,Amount 0.75">
+                <Field Id="CatalogModification" Index="9"/>
             </String>
             <User Type="Affix" Instance="Buddy">
                 <Field Id="AffixesRequired"/>
@@ -1477,6 +1477,9 @@
             <String String="Assets/Textures/affix_icon_structure_quest.dds">
                 <Field Id="Icon"/>
             </String>
+            <String String="AA libAffx_StructureQuestAffixAdded">
+                <Field Id="Trigger"/>
+            </String>
             <String String="UD libAffx_StructureQuestUD">
                 <Field Id="Trigger" Index="1"/>
             </String>
@@ -1489,11 +1492,11 @@
             <String String="EffectUsed libAffx_StructureQuest6 AffixStructureQuest6">
                 <Field Id="Trigger" Index="4"/>
             </String>
-            <String String="AA libAffx_StructureQuestAffixAdded">
-                <Field Id="Trigger"/>
-            </String>
             <String String="Quest libAffx_StructureQuest">
                 <Field Id="Trigger" Index="5"/>
+            </String>
+            <String String="UBCreate libAffx_StructureQuestUnitBehaviorCreate AffixStructureQuestToken">
+                <Field Id="Trigger" Index="6"/>
             </String>
         </Instances>
         <Instances Id="AASearing">
@@ -1690,16 +1693,16 @@
             <String String="10 0 AffixEnemyAllStats">
                 <Field Id="Behavior" Index="4"/>
             </String>
-            <String String="0 2 Set Behavior,AffixEnemyAllStats,Modification.AdditiveAttackSpeedFactor 0.15">
+            <String String="0 2 Set Behavior,AffixEnemyAllStats,Modification.AdditiveAttackSpeedFactor 0.10">
                 <Field Id="CatalogModification"/>
             </String>
-            <String String="0 2 Set Behavior,AffixEnemyAllStats,Modification.DamageDealtFraction[Basic] 0.15">
+            <String String="0 2 Set Behavior,AffixEnemyAllStats,Modification.DamageDealtFraction[Basic] 0.10">
                 <Field Id="CatalogModification" Index="1"/>
             </String>
-            <String String="0 2 Set Behavior,AffixEnemyAllStats,Modification.DamageDealtFraction[Ability] 0.15">
+            <String String="0 2 Set Behavior,AffixEnemyAllStats,Modification.DamageDealtFraction[Ability] 0.10">
                 <Field Id="CatalogModification" Index="2"/>
             </String>
-            <String String="0 2 Set Behavior,AffixEnemyAllStats,Modification.VitalMaxFractionArray[Life] 0.15">
+            <String String="0 2 Set Behavior,AffixEnemyAllStats,Modification.VitalMaxFractionArray[Life] 0.10">
                 <Field Id="CatalogModification" Index="3"/>
             </String>
         </Instances>
@@ -1787,6 +1790,9 @@
             </String>
             <String String="Epic">
                 <Field Id="Rarity"/>
+            </String>
+            <String String="OPG libAffx_EmergencyMeasureOncePerGame">
+                <Field Id="Trigger"/>
             </String>
         </Instances>
         <Instances Id="ButtonMasher">
@@ -2695,14 +2701,17 @@
             <String String="10 0 AffixAutoPalm">
                 <Field Id="Behavior" Index="4"/>
             </String>
-            <String String="Execute libAffx_DivineInterventionExecute">
+            <String String="OPG libAffx_DivineInterventionOncePerGame">
                 <Field Id="Trigger"/>
             </String>
+            <String String="Execute libAffx_DivineInterventionExecute">
+                <Field Id="Trigger" Index="2"/>
+            </String>
             <String String="LU libAffx_DivineInterventionLevelUp">
-                <Field Id="Trigger" Index="1"/>
+                <Field Id="Trigger" Index="3"/>
             </String>
             <String String="AA libAffx_DivineInterventionAffixAdded">
-                <Field Id="Trigger" Index="2"/>
+                <Field Id="Trigger" Index="4"/>
             </String>
         </Instances>
         <Instances Id="MassCloak">
@@ -3032,7 +3041,10 @@
             <Int Int="1">
                 <Field Id="Curse"/>
             </Int>
-            <Int Int="1">
+            <Int Int="500">
+                <Field Id="Weight"/>
+            </Int>
+            <Int Int="3">
                 <Field Id="SkipCurses"/>
             </Int>
             <String String="Tyrande">
@@ -3044,14 +3056,17 @@
             <String String="Respawn libAffx_NightElfBondRespawn">
                 <Field Id="Trigger"/>
             </String>
-            <String String="AA libAffx_NightElfBondAffixAdded">
+            <String String="OPG libAffx_NightElfBondOncePerGame">
                 <Field Id="Trigger" Index="1"/>
             </String>
-            <String String="UD libAffx_NightElfBondUnitDied">
+            <String String="AA libAffx_NightElfBondAffixAdded">
                 <Field Id="Trigger" Index="2"/>
             </String>
-            <String String="P libAffx_NightElfBondPeriodic 1">
+            <String String="UD libAffx_NightElfBondUnitDied">
                 <Field Id="Trigger" Index="3"/>
+            </String>
+            <String String="P libAffx_NightElfBondPeriodic 0.0625">
+                <Field Id="Trigger" Index="4"/>
             </String>
         </Instances>
         <Instances Id="FastPunch">
@@ -3698,11 +3713,14 @@
             <String String="1 8">
                 <Field Id="CatalogModification"/>
             </String>
-            <String String="AA libAffx_LastMomentsAffixAdded">
+            <String String="OPG libAffx_LastMomentsOncePerGame">
                 <Field Id="Trigger"/>
             </String>
-            <String String="P libAffx_LastMomentsPeriodic">
+            <String String="AA libAffx_LastMomentsAffixAdded">
                 <Field Id="Trigger" Index="1"/>
+            </String>
+            <String String="P libAffx_LastMomentsPeriodic">
+                <Field Id="Trigger" Index="2"/>
             </String>
         </Instances>
         <Instances Id="RangedThrall">
@@ -4517,6 +4535,23 @@
             </String>
             <String String="Scaling libAffx_AncientBlessingsScaling">
                 <Field Id="Trigger" Index="1"/>
+            </String>
+        </Instances>
+        <Instances Id="SgtHammerMachineGunner">
+            <String String="Assets/Textures/storm_ui_icon_sgthammer_tankmode.dds">
+                <Field Id="Icon"/>
+            </String>
+            <String String="SgtHammer">
+                <Field Id="HeroSpecific"/>
+            </String>
+            <String String="Starter">
+                <Field Id="Rarity"/>
+            </String>
+            <String String="OPG libAffx_SgtHammerMachineGunnerOncePerGame">
+                <Field Id="Trigger"/>
+            </String>
+            <String String="1 0 AffixSgtHammerMachineGunner">
+                <Field Id="Behavior"/>
             </String>
         </Instances>
     </CUser>
