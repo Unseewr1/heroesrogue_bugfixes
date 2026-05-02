@@ -22663,6 +22663,10 @@ bool libGame_gt_DVaMechDies_Func (bool testConds, bool runActions) {
         return true;
     }
 
+    if (!UnitHasBehavior(lv_deadUnit, "AffixCrashStressHappens")) {
+        return true;
+    }
+
 	//UIDisplayMessage(PlayerGroupAll(), c_messageAreaChat, StringToText("DVa Mech died, trigger worked"));
     dvaUnit = libGame_gv_players[lv_deadPlayer].lv_heroUnit;
 
